@@ -10,9 +10,9 @@
 		2C81086601AD2E56EED83AF0 /* NSObject+BlockObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F1FFAD8946B9014421031 /* NSObject+BlockObservation.m */; };
 		6D49D08E74CD633090970E79 /* Pods-KVOMutableArray-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BE368B5DA9AD718D0A2993 /* Pods-KVOMutableArray-dummy.m */; };
 		7E70768725BBC331F1016EAC /* Pods-KVOMutableArray-KVOMutableArray-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ADB0976005EA99950DC4A1 /* Pods-KVOMutableArray-KVOMutableArray-dummy.m */; };
-		7EAF0C1A52017F3FD1D3B2D4 /* KvoMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A426A28F59990F308F2DB705 /* KvoMutableArray.m */; };
+		7EAF0C1A52017F3FD1D3B2D4 /* KVOMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A426A28F59990F308F2DB705 /* KVOMutableArray.m */; };
 		AD41D73650E65728C1B5432F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4575EB8A3B96E7949B651D22 /* Foundation.framework */; };
-		CD935DC66CD28E11EDB3FA6A /* KvoMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B49FE94E51A3E2EF9D5DD1 /* KvoMutableArray.h */; };
+		CD935DC66CD28E11EDB3FA6A /* KVOMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B49FE94E51A3E2EF9D5DD1 /* KVOMutableArray.h */; };
 		DBCE0E0128A8F7CBEF60E8FF /* NSObject+BlockObservation.h in Headers */ = {isa = PBXBuildFile; fileRef = 92A308D081062CA745645D4A /* NSObject+BlockObservation.h */; };
 		EA1696E652CF9008049EBE65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4575EB8A3B96E7949B651D22 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -46,11 +46,11 @@
 		7A1F1FFAD8946B9014421031 /* NSObject+BlockObservation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BlockObservation.m"; sourceTree = "<group>"; };
 		7B3913A26E61D6BE7CDCB908 /* Pods-KVOMutableArray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVOMutableArray.release.xcconfig"; sourceTree = "<group>"; };
 		81757C958E53DDA6F582A09E /* Pods-KVOMutableArray-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KVOMutableArray-environment.h"; sourceTree = "<group>"; };
-		83B49FE94E51A3E2EF9D5DD1 /* KvoMutableArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KvoMutableArray.h; sourceTree = "<group>"; };
+		83B49FE94E51A3E2EF9D5DD1 /* KVOMutableArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KVOMutableArray.h; sourceTree = "<group>"; };
 		90C708C009CDCE4730C58220 /* Pods-KVOMutableArray-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVOMutableArray-acknowledgements.markdown"; sourceTree = "<group>"; };
 		92A308D081062CA745645D4A /* NSObject+BlockObservation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockObservation.h"; sourceTree = "<group>"; };
 		A01447826AD71EEFCCBAE317 /* KVOMutableArray.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVOMutableArray.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		A426A28F59990F308F2DB705 /* KvoMutableArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KvoMutableArray.m; sourceTree = "<group>"; };
+		A426A28F59990F308F2DB705 /* KVOMutableArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KVOMutableArray.m; sourceTree = "<group>"; };
 		B0BE368B5DA9AD718D0A2993 /* Pods-KVOMutableArray-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVOMutableArray-dummy.m"; sourceTree = "<group>"; };
 		B1ADB0976005EA99950DC4A1 /* Pods-KVOMutableArray-KVOMutableArray-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVOMutableArray-KVOMutableArray-dummy.m"; sourceTree = "<group>"; };
 		CE430428F4C422D0645004D9 /* libPods-KVOMutableArray-KVOMutableArray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVOMutableArray-KVOMutableArray.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +102,8 @@
 		2F8DABEDF4E98E238B71BCB5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				83B49FE94E51A3E2EF9D5DD1 /* KvoMutableArray.h */,
-				A426A28F59990F308F2DB705 /* KvoMutableArray.m */,
+				83B49FE94E51A3E2EF9D5DD1 /* KVOMutableArray.h */,
+				A426A28F59990F308F2DB705 /* KVOMutableArray.m */,
 				92A308D081062CA745645D4A /* NSObject+BlockObservation.h */,
 				7A1F1FFAD8946B9014421031 /* NSObject+BlockObservation.m */,
 			);
@@ -200,7 +200,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD935DC66CD28E11EDB3FA6A /* KvoMutableArray.h in Headers */,
+				CD935DC66CD28E11EDB3FA6A /* KVOMutableArray.h in Headers */,
 				DBCE0E0128A8F7CBEF60E8FF /* NSObject+BlockObservation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EAF0C1A52017F3FD1D3B2D4 /* KvoMutableArray.m in Sources */,
+				7EAF0C1A52017F3FD1D3B2D4 /* KVOMutableArray.m in Sources */,
 				2C81086601AD2E56EED83AF0 /* NSObject+BlockObservation.m in Sources */,
 				7E70768725BBC331F1016EAC /* Pods-KVOMutableArray-KVOMutableArray-dummy.m in Sources */,
 			);

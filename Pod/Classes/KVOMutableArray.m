@@ -1,7 +1,7 @@
-#import "KvoMutableArray.h"
+#import "KVOMutableArray.h"
 
 
-@implementation KvoMutableArray
+@implementation KVOMutableArray
 
 - (instancetype)init
 {
@@ -17,7 +17,7 @@
     return self;
 }
 
-- (BOOL)isEqualToArray:(KvoMutableArray*)array
+- (BOOL)isEqualToArray:(KVOMutableArray*)array
 {
     return [self.arr isEqualToArray:array.arr];
 }
@@ -177,7 +177,7 @@
 
 #pragma mark - NSMutableCopying
 - (id)mutableCopyWithZone:(NSZone *)zone {
-    KvoMutableArray* mutableSelf = [[KvoMutableArray allocWithZone:zone] initWithMutableArray:[self.arr mutableCopyWithZone:zone]];
+    KVOMutableArray* mutableSelf = [[KVOMutableArray allocWithZone:zone] initWithMutableArray:[self.arr mutableCopyWithZone:zone]];
     return mutableSelf;
 }
 @end

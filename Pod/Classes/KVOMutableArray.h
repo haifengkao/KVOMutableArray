@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 #import "NSObject+BlockObservation.h"
 
-@interface KvoMutableArray : NSObject<NSFastEnumeration, NSMutableCopying>
+@interface KVOMutableArray : NSObject<NSFastEnumeration, NSMutableCopying>
 @property (nonatomic, strong) NSMutableArray* arr;
 
 - (instancetype)init;
 - (instancetype)initWithMutableArray:(NSMutableArray*)array NS_DESIGNATED_INITIALIZER;
-- (BOOL)isEqualToArray:(KvoMutableArray*)array;
+- (BOOL)isEqualToArray:(KVOMutableArray*)array;
 - (void) addObject:(id)obj;
 - (void)addObjectsFromArray:(NSArray*)array;
 - (id)objectAtIndex:(NSUInteger)index;

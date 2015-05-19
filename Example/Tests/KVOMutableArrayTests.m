@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <KvoMutableArray.h>
+#import <KVOMutableArray.h>
 
 @interface KvoMutableArrayTest : XCTestCase
 {
@@ -16,7 +16,7 @@
 }
 
 @property (nonatomic, strong) id token;
-@property (nonatomic, strong) KvoMutableArray* array;
+@property (nonatomic, strong) KVOMutableArray* array;
 @property (nonatomic, strong) XCTestExpectation *expectation;
 @end
 @interface Dummy : NSObject
@@ -65,7 +65,7 @@
 
 - (void)testKvo
 {
-    KvoMutableArray* array = [[KvoMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
         NSLog(@"it changed: %@", [change objectForKey:NSKeyValueChangeKindKey]);
         NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
@@ -110,7 +110,7 @@
 
 - (void)testKvoRemoveAllObjectsFromEmptyArray
 {
-    KvoMutableArray* array = [[KvoMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
     
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
         XCTAssertTrue(NO, @"should not trigger KVO");
@@ -120,7 +120,7 @@
 
 - (void)testKvoAddObjectsFromEmptyArray
 {
-    KvoMutableArray* array = [[KvoMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
     
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
         XCTAssertTrue(NO, @"should not trigger KVO");
@@ -130,7 +130,7 @@
 
 - (void)testKvoAddObjectsFromArray
 {
-    KvoMutableArray* array = [[KvoMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
     [array addObject:@"hello"];
     
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
@@ -172,7 +172,7 @@
 
 - (void)testKvoRemoveAllObjects
 {
-    KvoMutableArray* array = [[KvoMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
     
     [array addObject:@"hello"];
     [array addObject:@"world"];
@@ -221,7 +221,7 @@
 {
     self.expectation = [self expectationWithDescription:@"KvoE"];
     
-    KvoMutableArray* array = [[KvoMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
     self.array = array;
     
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
