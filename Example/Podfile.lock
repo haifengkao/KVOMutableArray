@@ -1,0 +1,14 @@
+PODS:
+  - KVOMutableArray (0.1.0)
+
+DEPENDENCIES:
+  - KVOMutableArray (from `../`)
+
+EXTERNAL SOURCES:
+  KVOMutableArray:
+    :path: ../
+
+SPEC CHECKSUMS:
+  KVOMutableArray: fc6b8510b6fb1a98dbf126147adbf5676b299b76
+
+COCOAPODS: 0.36.4

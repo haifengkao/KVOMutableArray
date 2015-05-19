@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+
+target 'KVOMutableArray', :exclusive => true do
+  pod "KVOMutableArray", :path => "../"
+end
+
+link_with 'KVOMutableArray'

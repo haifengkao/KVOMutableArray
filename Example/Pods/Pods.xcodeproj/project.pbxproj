@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C81086601AD2E56EED83AF0 /* NSObject+BlockObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F1FFAD8946B9014421031 /* NSObject+BlockObservation.m */; };
+		6D49D08E74CD633090970E79 /* Pods-KVOMutableArray-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BE368B5DA9AD718D0A2993 /* Pods-KVOMutableArray-dummy.m */; };
+		7E70768725BBC331F1016EAC /* Pods-KVOMutableArray-KVOMutableArray-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ADB0976005EA99950DC4A1 /* Pods-KVOMutableArray-KVOMutableArray-dummy.m */; };
+		7EAF0C1A52017F3FD1D3B2D4 /* KvoMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A426A28F59990F308F2DB705 /* KvoMutableArray.m */; };
+		AD41D73650E65728C1B5432F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4575EB8A3B96E7949B651D22 /* Foundation.framework */; };
+		CD935DC66CD28E11EDB3FA6A /* KvoMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B49FE94E51A3E2EF9D5DD1 /* KvoMutableArray.h */; };
+		DBCE0E0128A8F7CBEF60E8FF /* NSObject+BlockObservation.h in Headers */ = {isa = PBXBuildFile; fileRef = 92A308D081062CA745645D4A /* NSObject+BlockObservation.h */; };
+		EA1696E652CF9008049EBE65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4575EB8A3B96E7949B651D22 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34B4C1DCA276DB60DF4E5703 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D97BD77D3F24861FA72A64A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27D00DD036F7B75906ACE5E8;
+			remoteInfo = "Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray";
+		};
+		DAFFE2174E14CC5634A10C02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D97BD77D3F24861FA72A64A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6EFA0F76C5E813EFD7EF8BB;
+			remoteInfo = "Pods-KVOMutableArray-KVOMutableArray";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23775FB17B034D066B605E24 /* Pods-KVOMutableArray-KVOMutableArray.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVOMutableArray-KVOMutableArray.xcconfig"; sourceTree = "<group>"; };
+		3050E9C9ED5325256E3448CF /* libPods-KVOMutableArray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVOMutableArray.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		312F4148395E339927E61AEF /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		42A9B799EE93C83091B8A7EA /* Pods-KVOMutableArray-KVOMutableArray-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVOMutableArray-KVOMutableArray-Private.xcconfig"; sourceTree = "<group>"; };
+		4575EB8A3B96E7949B651D22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4D205CB94E39867E49379635 /* Pods-KVOMutableArray-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVOMutableArray-resources.sh"; sourceTree = "<group>"; };
+		4FBB695D973144A48FCC36CE /* Pods-KVOMutableArray-KVOMutableArray-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KVOMutableArray-KVOMutableArray-prefix.pch"; sourceTree = "<group>"; };
+		79764BF76B5DD2FCAA6C0E6C /* Pods-KVOMutableArray-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVOMutableArray-acknowledgements.plist"; sourceTree = "<group>"; };
+		7A1F1FFAD8946B9014421031 /* NSObject+BlockObservation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BlockObservation.m"; sourceTree = "<group>"; };
+		7B3913A26E61D6BE7CDCB908 /* Pods-KVOMutableArray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVOMutableArray.release.xcconfig"; sourceTree = "<group>"; };
+		81757C958E53DDA6F582A09E /* Pods-KVOMutableArray-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KVOMutableArray-environment.h"; sourceTree = "<group>"; };
+		83B49FE94E51A3E2EF9D5DD1 /* KvoMutableArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KvoMutableArray.h; sourceTree = "<group>"; };
+		90C708C009CDCE4730C58220 /* Pods-KVOMutableArray-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVOMutableArray-acknowledgements.markdown"; sourceTree = "<group>"; };
+		92A308D081062CA745645D4A /* NSObject+BlockObservation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockObservation.h"; sourceTree = "<group>"; };
+		A01447826AD71EEFCCBAE317 /* KVOMutableArray.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVOMutableArray.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A426A28F59990F308F2DB705 /* KvoMutableArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KvoMutableArray.m; sourceTree = "<group>"; };
+		B0BE368B5DA9AD718D0A2993 /* Pods-KVOMutableArray-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVOMutableArray-dummy.m"; sourceTree = "<group>"; };
+		B1ADB0976005EA99950DC4A1 /* Pods-KVOMutableArray-KVOMutableArray-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVOMutableArray-KVOMutableArray-dummy.m"; sourceTree = "<group>"; };
+		CE430428F4C422D0645004D9 /* libPods-KVOMutableArray-KVOMutableArray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVOMutableArray-KVOMutableArray.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0F79C525B363C132971661 /* Pods-KVOMutableArray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVOMutableArray.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09CB154755C6FB773682EC14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD41D73650E65728C1B5432F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26D8DC9C10C50F29337BD76D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62324C943BA9F80FBE7C92B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1696E652CF9008049EBE65 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		005FE20C30D86D85B1D51AB8 /* Pods-KVOMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				90C708C009CDCE4730C58220 /* Pods-KVOMutableArray-acknowledgements.markdown */,
+				79764BF76B5DD2FCAA6C0E6C /* Pods-KVOMutableArray-acknowledgements.plist */,
+				B0BE368B5DA9AD718D0A2993 /* Pods-KVOMutableArray-dummy.m */,
+				81757C958E53DDA6F582A09E /* Pods-KVOMutableArray-environment.h */,
+				4D205CB94E39867E49379635 /* Pods-KVOMutableArray-resources.sh */,
+				DB0F79C525B363C132971661 /* Pods-KVOMutableArray.debug.xcconfig */,
+				7B3913A26E61D6BE7CDCB908 /* Pods-KVOMutableArray.release.xcconfig */,
+			);
+			name = "Pods-KVOMutableArray";
+			path = "Target Support Files/Pods-KVOMutableArray";
+			sourceTree = "<group>";
+		};
+		2F8DABEDF4E98E238B71BCB5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83B49FE94E51A3E2EF9D5DD1 /* KvoMutableArray.h */,
+				A426A28F59990F308F2DB705 /* KvoMutableArray.m */,
+				92A308D081062CA745645D4A /* NSObject+BlockObservation.h */,
+				7A1F1FFAD8946B9014421031 /* NSObject+BlockObservation.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9B5F59116181A5360D9C63F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D0C2B64CB307D363477E1C9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D0C2B64CB307D363477E1C9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4575EB8A3B96E7949B651D22 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		A252BFCF805276F814507C02 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				005FE20C30D86D85B1D51AB8 /* Pods-KVOMutableArray */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC78C1740319E90EAEBEB2A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A01447826AD71EEFCCBAE317 /* KVOMutableArray.bundle */,
+				3050E9C9ED5325256E3448CF /* libPods-KVOMutableArray.a */,
+				CE430428F4C422D0645004D9 /* libPods-KVOMutableArray-KVOMutableArray.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CAC468944CE9DD510E19C6EA /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F41BC59C78C67AF1E9C48D80 /* KVOMutableArray */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		D460696F5F32697815735BFC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				23775FB17B034D066B605E24 /* Pods-KVOMutableArray-KVOMutableArray.xcconfig */,
+				42A9B799EE93C83091B8A7EA /* Pods-KVOMutableArray-KVOMutableArray-Private.xcconfig */,
+				B1ADB0976005EA99950DC4A1 /* Pods-KVOMutableArray-KVOMutableArray-dummy.m */,
+				4FBB695D973144A48FCC36CE /* Pods-KVOMutableArray-KVOMutableArray-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-KVOMutableArray-KVOMutableArray";
+			sourceTree = "<group>";
+		};
+		D7D644274D384B7FA9CC0A8C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				2F8DABEDF4E98E238B71BCB5 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		EC85D75C08DBA1C326FFC7E6 = {
+			isa = PBXGroup;
+			children = (
+				312F4148395E339927E61AEF /* Podfile */,
+				CAC468944CE9DD510E19C6EA /* Development Pods */,
+				9B5F59116181A5360D9C63F8 /* Frameworks */,
+				BC78C1740319E90EAEBEB2A8 /* Products */,
+				A252BFCF805276F814507C02 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		F41BC59C78C67AF1E9C48D80 /* KVOMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				D7D644274D384B7FA9CC0A8C /* Pod */,
+				D460696F5F32697815735BFC /* Support Files */,
+			);
+			name = KVOMutableArray;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		94DF590E4C06BB09E0221EE6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD935DC66CD28E11EDB3FA6A /* KvoMutableArray.h in Headers */,
+				DBCE0E0128A8F7CBEF60E8FF /* NSObject+BlockObservation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		27D00DD036F7B75906ACE5E8 /* Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42E9A7FD035B93612A596491 /* Build configuration list for PBXNativeTarget "Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray" */;
+			buildPhases = (
+				39F065599135DF1DC30B9C54 /* Sources */,
+				26D8DC9C10C50F29337BD76D /* Frameworks */,
+				0D36EE52D1E9B8B3178E3F2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray";
+			productName = "Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray";
+			productReference = A01447826AD71EEFCCBAE317 /* KVOMutableArray.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		C6EFA0F76C5E813EFD7EF8BB /* Pods-KVOMutableArray-KVOMutableArray */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77F14696C6F5556867A4D7E2 /* Build configuration list for PBXNativeTarget "Pods-KVOMutableArray-KVOMutableArray" */;
+			buildPhases = (
+				6AE8E6FB2D8BD94B54E1FD3A /* Sources */,
+				09CB154755C6FB773682EC14 /* Frameworks */,
+				94DF590E4C06BB09E0221EE6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A66691BB82B8171BF4F27699 /* PBXTargetDependency */,
+			);
+			name = "Pods-KVOMutableArray-KVOMutableArray";
+			productName = "Pods-KVOMutableArray-KVOMutableArray";
+			productReference = CE430428F4C422D0645004D9 /* libPods-KVOMutableArray-KVOMutableArray.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C97FC5AA8D8D40E27FF9BE43 /* Pods-KVOMutableArray */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD6FF17673FE26880C55059A /* Build configuration list for PBXNativeTarget "Pods-KVOMutableArray" */;
+			buildPhases = (
+				B1AA4A74AD7C42DC4B5E79FD /* Sources */,
+				62324C943BA9F80FBE7C92B3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBDC17C5492BFD9A3F630A8C /* PBXTargetDependency */,
+			);
+			name = "Pods-KVOMutableArray";
+			productName = "Pods-KVOMutableArray";
+			productReference = 3050E9C9ED5325256E3448CF /* libPods-KVOMutableArray.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D97BD77D3F24861FA72A64A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = B8683CB1FC43491A7C6B3708 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC85D75C08DBA1C326FFC7E6;
+			productRefGroup = BC78C1740319E90EAEBEB2A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C97FC5AA8D8D40E27FF9BE43 /* Pods-KVOMutableArray */,
+				C6EFA0F76C5E813EFD7EF8BB /* Pods-KVOMutableArray-KVOMutableArray */,
+				27D00DD036F7B75906ACE5E8 /* Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D36EE52D1E9B8B3178E3F2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39F065599135DF1DC30B9C54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AE8E6FB2D8BD94B54E1FD3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EAF0C1A52017F3FD1D3B2D4 /* KvoMutableArray.m in Sources */,
+				2C81086601AD2E56EED83AF0 /* NSObject+BlockObservation.m in Sources */,
+				7E70768725BBC331F1016EAC /* Pods-KVOMutableArray-KVOMutableArray-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1AA4A74AD7C42DC4B5E79FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D49D08E74CD633090970E79 /* Pods-KVOMutableArray-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A66691BB82B8171BF4F27699 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray";
+			target = 27D00DD036F7B75906ACE5E8 /* Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray */;
+			targetProxy = 34B4C1DCA276DB60DF4E5703 /* PBXContainerItemProxy */;
+		};
+		FBDC17C5492BFD9A3F630A8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-KVOMutableArray-KVOMutableArray";
+			target = C6EFA0F76C5E813EFD7EF8BB /* Pods-KVOMutableArray-KVOMutableArray */;
+			targetProxy = DAFFE2174E14CC5634A10C02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1CC7049191C34C66CC8722A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2179ECFD72B1E2BBAA8B2DBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = KVOMutableArray;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		3193514018DE46C16B96874C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0F79C525B363C132971661 /* Pods-KVOMutableArray.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5AEBE958678A5182F52A0D0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6484FFC9D2DA8A91E3B246BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = KVOMutableArray;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		65AD2AE00C6E6E18E1AE9609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B3913A26E61D6BE7CDCB908 /* Pods-KVOMutableArray.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6DDFE7A69D24BBD5E27B84EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A9B799EE93C83091B8A7EA /* Pods-KVOMutableArray-KVOMutableArray-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KVOMutableArray-KVOMutableArray/Pods-KVOMutableArray-KVOMutableArray-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A54E6356A65C21732F01DE6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A9B799EE93C83091B8A7EA /* Pods-KVOMutableArray-KVOMutableArray-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KVOMutableArray-KVOMutableArray/Pods-KVOMutableArray-KVOMutableArray-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42E9A7FD035B93612A596491 /* Build configuration list for PBXNativeTarget "Pods-KVOMutableArray-KVOMutableArray-KVOMutableArray" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6484FFC9D2DA8A91E3B246BA /* Debug */,
+				2179ECFD72B1E2BBAA8B2DBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77F14696C6F5556867A4D7E2 /* Build configuration list for PBXNativeTarget "Pods-KVOMutableArray-KVOMutableArray" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DDFE7A69D24BBD5E27B84EB /* Debug */,
+				A54E6356A65C21732F01DE6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8683CB1FC43491A7C6B3708 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AEBE958678A5182F52A0D0E /* Debug */,
+				1CC7049191C34C66CC8722A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD6FF17673FE26880C55059A /* Build configuration list for PBXNativeTarget "Pods-KVOMutableArray" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3193514018DE46C16B96874C /* Debug */,
+				65AD2AE00C6E6E18E1AE9609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D97BD77D3F24861FA72A64A9 /* Project object */;
+}
