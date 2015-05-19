@@ -10,27 +10,24 @@
 Pod::Spec.new do |s|
   s.name             = "KVOMutableArray"
   s.version          = "0.1.0"
-  s.summary          = "A short description of KVOMutableArray."
+  s.summary          = "A mutable array which can be key value observed (KVO)."
   s.description      = <<-DESC
-                       An optional longer description of KVOMutableArray
+                       KVOMutableArray provides the functionality to observe a NSMutableArray.
 
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/KVOMutableArray"
+  s.homepage         = "https://github.com/haifengkao/KVOMutableArray"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Hai Feng Kao" => "haifeng@cocoaspice.in" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/KVOMutableArray.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/haifengkao/KVOMutableArray.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'KVOMutableArray' => ['Pod/Assets/*.png']
-  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
