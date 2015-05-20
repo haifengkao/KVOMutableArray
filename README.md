@@ -1,5 +1,5 @@
 # KVOMutableArray
-A NSMutableArray which can be key value observed (KVO)
+`KVOMutableArray` is a proxy object which supports key value observation of NSMutableArray. 
 
 [![CI Status](http://img.shields.io/travis/Hai Feng Kao/KVOMutableArray.svg?style=flat)](https://travis-ci.org/Hai Feng Kao/KVOMutableArray)
 [![Version](https://img.shields.io/cocoapods/v/KVOMutableArray.svg?style=flat)](http://cocoapods.org/pods/KVOMutableArray)
@@ -10,11 +10,10 @@ A NSMutableArray which can be key value observed (KVO)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## What is it?
+## How it works
 
-`KVOMutableArray` is a proxy object which supports key value observation of NSMutableArray. 
-
-The [idea behind this project](http://stackoverflow.com/questions/24088953/kvo-notifications-for-a-modification-of-an-nsarray-backed-by-a-nsmutablearray).
+Because NSMutableArray cannot be directly key value observed, we monitor the change events from a property of KVOMutableArray.
+For more details, [check the discussion](http://stackoverflow.com/questions/24088953/kvo-notifications-for-a-modification-of-an-nsarray-backed-by-a-nsmutablearray).
 
 ## So what can I do with it?
 
@@ -31,7 +30,7 @@ AMBlockToken* token = [kvoMutableArray addObserverWithTask:^BOOL(id obj, NSDicti
             NSLog(@"objects added: %@", [new objectsAtIndexes:indexes]);
         } else if ([kind integerValue] == NSKeyValueChangeRemoval)
         {
-            NSLog(@"objects removed: %@", [old objectsAtIndexes:indexes]indices);
+            NSLog(@"objects removed: %@", [old objectsAtIndexes:indexes]);
         }
 
         return YES;
@@ -49,21 +48,63 @@ pod "KVOMutableArray"
 
  If you don't have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
 
-# Example
+## Usage
 
-`Example.xcworkspace` in the `Example` directory serves as an example implementation of `MSDynamicsDrawerViewController`. It uses Cocoapods to link with the `MSDynamicsDrawerViewController` source files in the root directory as a development pod. As such, use the example `xcworkspace` and not the `xcproj`.
+### Init array
+```objective-c
+KVOMutableArray* array = [KVOMutableArray new];
+[array addObject:@"hello"];
+[array addObject:@"world"];
+```
 
-# Usage
+### Register KVO events
+```objective-c
+AMBlockToken* token = [array addObserverWithTask:^BOOL(id obj, NSDictionary *change) {
+    // handle the event here
+}];
+```
 
-## Pane View Controller
+### Stop receiving KVO events
+```objective-c
+[token removeObserver];
+```
 
-# Requirements
+### Retrieve the enclosing NSMutableArray object
+```objective-c
+NSMutableArray* theMutableArray = array.arr;
+```
+
+### Add, Remove, Access the objects
+
+Manipulating the objects from KVOMutableArray
+```objective-c
+[array removeLastObject];
+[array addObject:@"awesome!"];
+[array removeObjectAtIndex:0];
+NSString* awesome = array[0];
+```
+Or from the enclosing NSMutableArray
+```objective-c
+[array.arr removeLastObject];
+[array.arr addObject:@"awesome!"];
+[array.arr removeObjectAtIndex:0];
+NSString* awesome = array.arr[0];
+```
+
+
+### Init from exisiting NSArray
+NSMutableArray* someThing = [@[@(1), @(2), @(3), @(4)] mutableCopy];
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:someNSArray];
+
+
+## Requirements
 
 Requires iOS 7.0, and ARC.
 
-# Contributing
+## Contributing
 
 Forks, patches and other feedback are welcome.
+
 ## License
 
 KVOMutableArray is available under the MIT license. See the LICENSE file for more info.
