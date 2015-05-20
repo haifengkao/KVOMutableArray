@@ -63,6 +63,26 @@
     
 }
 
+- (void)testIndexAccess
+{
+
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
+    [array addObject:@"hello"];
+    
+    XCTAssertEqual(array[0], @"hello");
+}
+
+- (void)testIndexAccessWrite
+{
+
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
+    [array addObject:@"hello"];
+    array[0] = @"world";
+    
+    XCTAssertEqual(array[0], @"world");
+}
+
+
 - (void)testKvo
 {
     KVOMutableArray* array = [[KVOMutableArray alloc] init];
@@ -79,6 +99,7 @@
         [indices getIndexes:buffer maxCount:indexCount inIndexRange:nil];
         
         NSMutableArray *indexPathArray = [NSMutableArray array];
+        [indexPathArray setObject:0 atIndexedSubscript:0];
         for (int i = 0; i < indexCount; i++) {
             NSUInteger indexPathIndices[2];
             indexPathIndices[0] = 0;

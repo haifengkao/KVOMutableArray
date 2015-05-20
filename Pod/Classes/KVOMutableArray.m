@@ -46,6 +46,7 @@
     return [self addObserverForKeyPath:@"arr" task:task];
 }
 
+#pragma mark - convenience functions
 - (void)addObject:(id)obj
 {
     [self insertObject:obj inArrAtIndex:[self.arr count]];
@@ -92,6 +93,16 @@
 
 - (id)objectAtIndex:(NSUInteger)index {
     return [self objectInArrAtIndex:index];
+}
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx
+{
+    return [self.arr objectAtIndexedSubscript:idx];
+}
+
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx
+{
+    [self.arr setObject:obj atIndexedSubscript:idx];
 }
 
 - (void)removeObject:(id)anObject

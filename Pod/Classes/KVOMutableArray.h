@@ -10,6 +10,8 @@
 - (void) addObject:(id)obj;
 - (void)addObjectsFromArray:(NSArray*)array;
 - (id)objectAtIndex:(NSUInteger)index;
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
 - (void)insertObject:(id)obj atIndex:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)obj;
