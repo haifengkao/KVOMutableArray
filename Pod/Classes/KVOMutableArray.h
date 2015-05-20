@@ -11,6 +11,7 @@
 - (void)addObjectsFromArray:(NSArray*)array;
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
+- (NSUInteger)indexOfObject:(id)object;
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
 - (void)insertObject:(id)obj atIndex:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
@@ -22,8 +23,5 @@
 - (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
 - (AMBlockToken*)addObserverWithTask:(AMBlockTask)task;
 
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
-@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger countOfArr;
-#pragma mark - immutable functions
-- (NSUInteger)indexOfObject:(id)object;
+@property (readonly) NSUInteger count;
 @end
