@@ -6,18 +6,24 @@
 [![License](https://img.shields.io/cocoapods/l/KVOMutableArray.svg?style=flat)](http://cocoapods.org/pods/KVOMutableArray)
 [![Platform](https://img.shields.io/cocoapods/p/KVOMutableArray.svg?style=flat)](http://cocoapods.org/pods/KVOMutableArray)
 
-## Usage
+## Installation
+
+KVOMutableArray is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+``` ruby
+pod "KVOMutableArray"
+```
+
+ If you don't have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
+
+## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## How it works
-
-Because NSMutableArray cannot be directly key value observed, we monitor the change events from a property of KVOMutableArray.
-For more details, [check the discussion](http://stackoverflow.com/questions/24088953/kvo-notifications-for-a-modification-of-an-nsarray-backed-by-a-nsmutablearray).
-
 ## So what can I do with it?
 
-### Receive KVO notificaiton
+#### Receive KVO notificaiton, YEAH!
 ```objective-c
 AMBlockToken* token = [kvoMutableArray addObserverWithTask:^BOOL(id obj, NSDictionary *change) {
         NSIndexSet *indexes = change[NSKeyValueChangeIndexesKey];
@@ -36,17 +42,6 @@ AMBlockToken* token = [kvoMutableArray addObserverWithTask:^BOOL(id obj, NSDicti
         return YES;
     }];
 ```
-
-## Installation
-
-KVOMutableArray is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-``` ruby
-pod "KVOMutableArray"
-```
-
- If you don't have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
 
 ## Usage
 
@@ -93,13 +88,21 @@ NSString* awesome = array.arr[0];
 
 
 ### Init from exisiting NSArray
+```objective-c
 NSMutableArray* someThing = [@[@(1), @(2), @(3), @(4)] mutableCopy];
 KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:someNSArray];
+```
 
 
 ## Requirements
 
 Requires iOS 7.0, and ARC.
+
+## How it works
+
+Because NSMutableArray cannot be directly key value observed, we monitor the change events from a property of KVOMutableArray.
+For more details, [check the stackoverflow discussion here](http://stackoverflow.com/questions/24088953/kvo-notifications-for-a-modification-of-an-nsarray-backed-by-a-nsmutablearray).
+
 
 ## Contributing
 
