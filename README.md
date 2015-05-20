@@ -87,7 +87,7 @@ NSString* awesome = array.arr[0];
 ```
 
 
-### Init from exisiting NSArray
+### Init from the exisiting NSArray
 ```objective-c
 NSMutableArray* someThing = [@[@(1), @(2), @(3), @(4)] mutableCopy];
 KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:someNSArray];
@@ -101,7 +101,7 @@ Requires iOS 7.0, and ARC.
 ## How it works
 
 Because NSMutableArray cannot be directly key value observed, we monitor the change events from a property of KVOMutableArray.
-For more details, [check the stackoverflow discussion here](http://stackoverflow.com/questions/24088953/kvo-notifications-for-a-modification-of-an-nsarray-backed-by-a-nsmutablearray).
+For more details, check [the stackoverflow discussion](http://stackoverflow.com/questions/24088953/kvo-notifications-for-a-modification-of-an-nsarray-backed-by-a-nsmutablearray).
 
 
 ## Contributing
