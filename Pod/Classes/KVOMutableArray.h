@@ -7,7 +7,7 @@
 - (instancetype)init;
 - (instancetype)initWithMutableArray:(NSMutableArray*)array NS_DESIGNATED_INITIALIZER;
 - (BOOL)isEqualToArray:(KVOMutableArray*)array;
-- (void) addObject:(id)obj;
+- (void)addObject:(id)obj;
 - (void)addObjectsFromArray:(NSArray*)array;
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
