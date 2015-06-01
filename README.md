@@ -15,6 +15,11 @@ it, simply add the following line to your Podfile:
 pod "KVOMutableArray"
 ```
 
+KVOMutableArray supports monitoring with ReactiveCocoa signals. To enable this feature, add the following line instead:
+``` ruby
+pod "KVOMutableArray/ReactiveCocoaSupport"
+```
+
  If you don't have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
 
 ## Example
@@ -64,7 +69,16 @@ AMBlockToken* token = [array addObserverWithTask:^BOOL(id obj, NSDictionary *cha
     // handle the event here
 }];
 ```
-
+Alternatively, you can use ReactiveCocoa signals.
+```objective-c
+RACSignal* signal = [array changeSignal];
+[signal subscribeNext:^(RACTuple* t) {
+    NSArray *obj = t.first;
+    NSDictionary *change= t.second;
+    // handle the event here
+        
+}];
+```
 ### Stop receiving KVO events
 ```objective-c
 [token removeObserver];
