@@ -99,7 +99,6 @@
         [indices getIndexes:buffer maxCount:indexCount inIndexRange:nil];
         
         NSMutableArray *indexPathArray = [NSMutableArray array];
-        [indexPathArray setObject:0 atIndexedSubscript:0];
         for (int i = 0; i < indexCount; i++) {
             NSUInteger indexPathIndices[2];
             indexPathIndices[0] = 0;
