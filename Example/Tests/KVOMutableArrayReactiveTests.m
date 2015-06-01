@@ -10,18 +10,6 @@
 #import <KVOMutableArray+ReactiveCocoaSupport.h>
 #import <RACTuple.h>
 
-@interface RACSignal(dummy)
-
-@end
-@implementation RACSignal(dummy)
-
-- (void)dealloc
-{
-    
-}
-
-@end
-
 @interface KVOMutableArrayReactiveTests : XCTestCase
 
 @end
