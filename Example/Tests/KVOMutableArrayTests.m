@@ -85,7 +85,7 @@
 
 - (void)testKvo
 {
-    KVOMutableArray* array = [[KVOMutableArray alloc] init];
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello"] mutableCopy]];
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
         NSLog(@"it changed: %@", [change objectForKey:NSKeyValueChangeKindKey]);
         NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
