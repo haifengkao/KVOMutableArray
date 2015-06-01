@@ -13,6 +13,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		C8459B197E363D2D9C9DE80C /* libPods-KVOMutableArray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AECF54F0A6DFABAFD607D6 /* libPods-KVOMutableArray.a */; };
 		F94F79AC1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F94F79AB1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m */; };
+		F9F8383D1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F8383C1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D491AA07A8ECF6B5DA0F2D89 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D9AECF54F0A6DFABAFD607D6 /* libPods-KVOMutableArray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVOMutableArray.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94F79AB1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOMutableArrayTests.m; sourceTree = "<group>"; };
+		F9F8383C1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOMutableArrayReactiveTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				F94F79AB1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
+				F9F8383C1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F8383D1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m in Sources */,
 				F94F79AC1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

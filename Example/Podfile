@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 
 target 'KVOMutableArray', :exclusive => true do
-  pod "KVOMutableArray", :path => "../"
+  pod "KVOMutableArray/ReactiveCocoaSupport", :path => "../"
 end
 
 link_with 'KVOMutableArray'
