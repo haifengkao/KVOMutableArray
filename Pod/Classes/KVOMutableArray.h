@@ -21,6 +21,9 @@
 - (void)removeAllObjects;
 - (void)removeLastObject;
 - (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
+- (void)insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes;
+- (void)removeObjectsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects;
 - (AMBlockToken*)addObserverWithTask:(AMBlockTask)task;
 
 @property (readonly) NSUInteger count;

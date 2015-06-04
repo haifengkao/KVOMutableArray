@@ -59,7 +59,7 @@
     NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
     if (indexSet.count > 0) {
         // don't send meaningless KVO event
-        [self insertArr:array atIndexes:indexSet];
+        [self insertObjects:array atIndexes:indexSet];
     }
 }
 
@@ -69,7 +69,7 @@
     NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
     if (indexSet.count > 0) {
         // don't send meaningless KVO event
-        [self removeArrAtIndexes:indexSet];
+        [self removeObjectsAtIndexes:indexSet];
     }
     
 //    don't use the following codes. each object removed will send
@@ -136,6 +136,21 @@
     [self replaceObjectInArrAtIndex:index withObject:obj];
 }
 
+- (void)insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
+{
+    [self insertArr:objects atIndexes:indexes];
+}
+
+- (void)removeObjectsAtIndexes:(NSIndexSet *)indexes
+{
+   [self removeArrAtIndexes:indexes];
+}
+
+- (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects
+{
+    [self replaceArrAtIndexes:indexes withArr:objects];
+}
+
 #pragma mark - Getter Indexed Accessors
 - (NSUInteger)countOfArr {
     return [self.arr count];
@@ -159,6 +174,11 @@
 - (void)replaceObjectInArrAtIndex:(NSUInteger)index withObject:(id)obj
 {
     (self.arr)[index] = obj;
+}
+
+- (void)replaceArrAtIndexes:(NSIndexSet*)indexes withArr:(NSArray*)array
+{
+    [self.arr replaceObjectsAtIndexes:indexes withObjects:array];
 }
 
 - (void)removeObjectFromArrAtIndex:(NSUInteger)index

@@ -150,6 +150,30 @@
     XCTAssertTrue(receiveReplacement);
 }
 
+- (void)testKvoWithMultipleReplace
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello", @"world"] mutableCopy]];
+    self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
+        NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
+        NSLog(@"it changed: %@", kind);
+        
+        XCTAssertEqualObjects(kind, @(NSKeyValueChangeReplacement), @"should be replacement");
+        receiveReplacement = YES;
+        return YES;
+    }];
+    
+    NSMutableIndexSet* indexes = [NSMutableIndexSet new];
+    [indexes addIndex:0];
+    [indexes addIndex:1];
+    
+    [array replaceObjectsAtIndexes:indexes withObjects:@[@"awesome", @"replace"]];
+    
+    XCTAssertTrue(receiveReplacement);
+    XCTAssertEqualObjects(array[0], @"awesome");
+    XCTAssertEqualObjects(array[1], @"replace");
+}
+
 - (void)testKvoRemoveAllObjectsFromEmptyArray
 {
     KVOMutableArray* array = [[KVOMutableArray alloc] init];
