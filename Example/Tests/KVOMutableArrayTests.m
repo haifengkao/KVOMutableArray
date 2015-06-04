@@ -13,6 +13,7 @@
 {
     BOOL receiveDelete;
     BOOL receiveAdd;
+    BOOL receiveReplacement;
 }
 
 @property (nonatomic, strong) id token;
@@ -42,6 +43,7 @@
 
 - (void)setUp {
     // Run before each test method
+    receiveReplacement = receiveAdd = receiveDelete = NO;
 }
 
 - (void)tearDown {
@@ -126,6 +128,26 @@
     }];
     [array addObject:@"world"];
     [array removeLastObject];
+    
+    XCTAssertTrue(receiveAdd);
+    XCTAssertTrue(receiveDelete);
+}
+
+- (void)testKvoWithReplace
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello"] mutableCopy]];
+    self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
+        NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
+        NSLog(@"it changed: %@", kind);
+        
+        XCTAssertEqualObjects(kind, @(NSKeyValueChangeReplacement), @"should be replacement");
+        receiveReplacement = YES;
+        return YES;
+    }];
+    array[0] = @"world";
+    
+    XCTAssertTrue(receiveReplacement);
 }
 
 - (void)testKvoRemoveAllObjectsFromEmptyArray

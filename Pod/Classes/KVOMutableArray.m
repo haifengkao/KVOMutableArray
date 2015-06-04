@@ -102,7 +102,8 @@
 
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx
 {
-    [self.arr setObject:obj atIndexedSubscript:idx];
+    // the implementation of replaceObjectAtIndex uses setObject:atIndexedSubscript: of self.arr
+    [self replaceObjectAtIndex:idx withObject:obj];
 }
 
 - (void)removeObject:(id)anObject
