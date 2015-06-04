@@ -27,8 +27,6 @@
 }
 
 - (void)testChangeSignal {
-    // This is an example of a performance test case.
-    
     __block __weak RACSignal* signalRef = nil;
     __block __weak KVOMutableArray* arrayRef = nil;
     
