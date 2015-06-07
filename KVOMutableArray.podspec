@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "KVOMutableArray"
-  s.version          = "0.4.0"
+  s.version          = "0.5.0"
   s.summary          = "A mutable array which can be key value observed (KVO)."
   s.description      = <<-DESC
                        KVOMutableArray provides the functionality to observe a NSMutableArray.
