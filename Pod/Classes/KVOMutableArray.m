@@ -46,7 +46,37 @@
     return [self addObserverForKeyPath:@"arr" task:task];
 }
 
-#pragma mark - convenience functions
+#pragma mark - immutable convenience functions
+- (id)firstObject
+{
+    return self.arr.firstObject;
+}
+
+- (id)lastObject
+{
+    return self.arr.lastObject;
+}
+
+- (id)objectAtIndex:(NSUInteger)index {
+    return [self objectInArrAtIndex:index];
+}
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx
+{
+    return [self.arr objectAtIndexedSubscript:idx];
+}
+
+- (NSUInteger)count
+{
+    return [self countOfArr];
+}
+
+- (NSUInteger)indexOfObject:(id)object
+{
+    return [self.arr indexOfObject:object];
+}
+
+#pragma mark - mutable convenience functions
 - (void)addObject:(id)obj
 {
     [self insertObject:obj inArrAtIndex:[self.arr count]];
@@ -84,20 +114,6 @@
 {
     NSMutableArray* arr = [self mutableArrayValueForKey:@"arr"];
     [arr removeLastObject];
-}
-
-- (NSUInteger)count
-{
-    return [self countOfArr];
-}
-
-- (id)objectAtIndex:(NSUInteger)index {
-    return [self objectInArrAtIndex:index];
-}
-
-- (id)objectAtIndexedSubscript:(NSUInteger)idx
-{
-    return [self.arr objectAtIndexedSubscript:idx];
 }
 
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx
@@ -199,12 +215,6 @@
 - (void)insertArr:(NSArray *)array atIndexes:(NSIndexSet *)indexes
 {
     [self.arr insertObjects:array atIndexes:indexes];
-}
-
-#pragma mark - immutable functions
-- (NSUInteger)indexOfObject:(id)object
-{
-    return [self.arr indexOfObject:object];
 }
 
 #pragma mark - NSMutableCopying

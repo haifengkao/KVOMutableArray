@@ -314,4 +314,30 @@
     
     [self.expectation fulfill];
 }
+
+- (void)testLastObject
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
+    
+    XCTAssertTrue(array.lastObject == nil, @"should be nil");
+    [array insertObject:@"hi" atIndex:0];
+    
+    XCTAssertEqualObjects(array.lastObject, @"hi", @"should be the same");
+    
+    [array insertObject:@"hi2" atIndex:0];
+    XCTAssertEqualObjects(array.lastObject, @"hi", @"should be the same");
+}
+
+- (void)testFistObject
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] init];
+    
+    XCTAssertTrue(array.firstObject == nil, @"should be nil");
+    [array insertObject:@"hi" atIndex:0];
+    
+    XCTAssertEqualObjects(array.firstObject, @"hi", @"should be the same");
+    
+    [array insertObject:@"hi2" atIndex:0];
+    XCTAssertEqualObjects(array.firstObject, @"hi2", @"should be the same");
+}
 @end

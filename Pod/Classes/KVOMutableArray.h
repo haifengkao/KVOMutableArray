@@ -26,5 +26,8 @@
 - (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects;
 - (AMBlockToken*)addObserverWithTask:(AMBlockTask)task;
 
+#pragma mark - immutable fuctions
 @property (readonly) NSUInteger count;
+@property (nonatomic, readonly) id firstObject NS_AVAILABLE(10_6, 4_0);
+@property (nonatomic, readonly) id lastObject;
 @end
