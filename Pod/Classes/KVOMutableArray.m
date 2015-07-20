@@ -130,7 +130,6 @@
     [self.observer replaceObjectInArrAtIndex:index withObject:obj];
 }
 
-
 #pragma mark - immutable convenience functions
 - (id)firstObject
 {
