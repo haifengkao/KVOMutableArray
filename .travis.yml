@@ -11,6 +11,4 @@ before_install:
 xcode_workspace: Example/KVOMutableArray.xcworkspace
 xcode_scheme: KVOMutableArray-Example
 xcode_sdk: iphonesimulator
-script:
-   - pod lib lint --quick
 after_success: slather
