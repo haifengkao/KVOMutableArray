@@ -30,7 +30,6 @@
 @end
 @implementation KvoMutableArrayTest
 
-
 - (void)setUpClass {
     // Run at start of all tests in the class
 }
@@ -48,6 +47,59 @@
 
 - (void)tearDown {
     // Run after each test method
+}
+
+- (void)testContainsObject
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
+    XCTAssert([array containsObject:@(1)], @"");
+}
+
+- (void)testArchiving
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@(1), @(2), @(3)] mutableCopy]];
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:array];
+    NSMutableArray* unarchived = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    XCTAssert([unarchived isKindOfClass:[NSMutableArray class]], @"it won't be KVOMutableArray, beware!!!");
+    
+    XCTAssert([array.arr isEqualToArray:unarchived], @"");
+}
+
+- (void)testInitWithObjects
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
+    XCTAssert([array[0] isEqual:@(1)], @"");
+    XCTAssert([array[1] isEqual:@(2)], @"");
+    XCTAssert([array[2] isEqual:@(3)], @"");
+    XCTAssert(array.count == 3, @"");
+    XCTAssert([array isKindOfClass:[KVOMutableArray class]], @"");
+}
+
+- (void)testInitWithArray
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)] copyItems:NO];
+    XCTAssert([array[0] isEqual:@(1)], @"");
+    XCTAssert([array[1] isEqual:@(2)], @"");
+    XCTAssert([array[2] isEqual:@(3)], @"");
+    XCTAssert(array.count == 3, @"");
+    XCTAssert([array isKindOfClass:[KVOMutableArray class]], @"");
+}
+
+- (void)testMutableCopy
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)]];
+    KVOMutableArray* mutableCopy = [array mutableCopy];
+    
+    XCTAssert([array isEqualToArray:mutableCopy], @"");
+}
+
+- (void)testCopy
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)]];
+    NSArray* copy = [array copy];
+    
+    XCTAssert([array.arr isEqualToArray:copy], @"");
 }
 
 - (void)testObjectKvo

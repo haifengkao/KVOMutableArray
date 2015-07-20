@@ -3,22 +3,50 @@
 
 @implementation KVOMutableArray
 
-- (instancetype)init
-{
-    return [self initWithMutableArray:[[NSMutableArray alloc] init]];
-}
-            
 - (instancetype)initWithMutableArray:(NSMutableArray*)array
 {
     if((self = [super init]))
     {
-        self.arr = array;
+        _arr = array;
     }
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithMutableArray:[[NSMutableArray alloc] init]];
+}
+
+- (instancetype)initWithObjects:(const id [])objects count:(NSUInteger)cnt;
+{
+    NSMutableArray* arr = [[NSMutableArray alloc] initWithObjects:objects count:cnt];
+    return [self initWithMutableArray:arr];
+}
+
+- (instancetype)initWithCapacity:(NSUInteger)numItems
+{
+    NSMutableArray* arr = [[NSMutableArray alloc]  initWithCapacity:numItems];
+    return [self initWithMutableArray:arr];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    NSMutableArray* arr = [aDecoder decodeObjectForKey:@"arr"];
+    return [self initWithMutableArray:arr];
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder;
+{
+    [encoder encodeObject:self.arr forKey:@"arr"];
+}
+
 - (BOOL)isEqualToArray:(KVOMutableArray*)array
 {
+    if (![array isKindOfClass:[KVOMutableArray class]]) {
+        // I guess array is NSArray
+        return NO;
+    }
+    
     return [self.arr isEqualToArray:array.arr];
 }
 
@@ -46,6 +74,57 @@
     return [self addObserverForKeyPath:@"arr" task:task];
 }
 
+#pragma mark - NSArray subclassing methods
+/*
+  Any subclass of NSArray must override the primitive instance methods count and objectAtIndex:. 
+  These methods must operate on the backing store that you provide for the elements of the collection.
+  For this backing store you can use a static array, a standard NSArray object, or some other 
+  data type or mechanism. You may also choose to override, partially or fully, any other NSArray method 
+  for which you want to provide an alternative implementation.
+ */
+- (NSUInteger)count
+{
+    return [self countOfArr];
+}
+
+- (id)objectAtIndex:(NSUInteger)index {
+    return [self objectInArrAtIndex:index];
+}
+
+#pragma mark - NSMutableArray subclassing methods
+
+/*
+ NSMutableArray defines five primitive methods:
+ insertObject:atIndex:
+ removeObjectAtIndex:
+ addObject:
+ removeLastObject
+ replaceObjectAtIndex:withObject:
+ */
+- (void)insertObject:(id)obj atIndex:(NSUInteger)index {
+    [self insertObject:obj inArrAtIndex:index];
+}
+
+- (void)removeObjectAtIndex:(NSUInteger)index {
+    [self removeObjectFromArrAtIndex:index];
+}
+
+- (void)addObject:(id)obj
+{
+    [self insertObject:obj inArrAtIndex:[self.arr count]];
+}
+
+- (void)removeLastObject
+{
+    NSMutableArray* arr = [self mutableArrayValueForKey:@"arr"];
+    [arr removeLastObject];
+}
+
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)obj {
+    [self replaceObjectInArrAtIndex:index withObject:obj];
+}
+
+
 #pragma mark - immutable convenience functions
 - (id)firstObject
 {
@@ -57,18 +136,9 @@
     return self.arr.lastObject;
 }
 
-- (id)objectAtIndex:(NSUInteger)index {
-    return [self objectInArrAtIndex:index];
-}
-
 - (id)objectAtIndexedSubscript:(NSUInteger)idx
 {
     return [self.arr objectAtIndexedSubscript:idx];
-}
-
-- (NSUInteger)count
-{
-    return [self countOfArr];
 }
 
 - (NSUInteger)indexOfObject:(id)object
@@ -77,11 +147,6 @@
 }
 
 #pragma mark - mutable convenience functions
-- (void)addObject:(id)obj
-{
-    [self insertObject:obj inArrAtIndex:[self.arr count]];
-}
-
 - (void)addObjectsFromArray:(NSArray*)array
 {
     NSUInteger count = self.arr.count;
@@ -110,12 +175,6 @@
 //    [arr removeAllObjects];
 }
 
-- (void)removeLastObject
-{
-    NSMutableArray* arr = [self mutableArrayValueForKey:@"arr"];
-    [arr removeLastObject];
-}
-
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx
 {
     // the implementation of replaceObjectAtIndex uses setObject:atIndexedSubscript: of self.arr
@@ -138,18 +197,6 @@
     }
     [self replaceObjectAtIndex:idx1 withObject:obj2];
     [self replaceObjectAtIndex:idx2 withObject:obj1];
-}
-
-- (void)insertObject:(id)obj atIndex:(NSUInteger)index {
-    [self insertObject:obj inArrAtIndex:index];
-}
-
-- (void)removeObjectAtIndex:(NSUInteger)index {
-    [self removeObjectFromArrAtIndex:index];
-}
-
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)obj {
-    [self replaceObjectInArrAtIndex:index withObject:obj];
 }
 
 - (void)insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
