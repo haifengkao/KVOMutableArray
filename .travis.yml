@@ -3,6 +3,8 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
+before_install:
+  - gem i slather --no-rdoc
 # cache: cocoapods
 # podfile: Example/Podfile
 # before_install:
@@ -13,3 +15,5 @@ install:
 script:
 - set -o pipefail && xcodebuild test -workspace Example/KVOMutableArray.xcworkspace -scheme KVOMutableArray-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - pod lib lint --quick
+
+after_success: slather

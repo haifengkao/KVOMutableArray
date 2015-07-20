@@ -1,5 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+# for code coverage (https://github.com/venmo/slather)
+plugin 'slather'
 
 target 'KVOMutableArray', :exclusive => true do
   pod "KVOMutableArray/ReactiveCocoaSupport", :path => "../"

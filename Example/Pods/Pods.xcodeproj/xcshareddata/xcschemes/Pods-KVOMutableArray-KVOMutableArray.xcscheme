@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D423BD0A3561D1377BC602A2"
+               BlueprintIdentifier = "ACFCD8F336ED071D9DA724F6"
                BuildableName = "libPods-KVOMutableArray-KVOMutableArray.a"
                BlueprintName = "Pods-KVOMutableArray-KVOMutableArray"
                ReferencedContainer = "container:Pods.xcodeproj">
