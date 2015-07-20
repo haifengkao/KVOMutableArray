@@ -8,14 +8,14 @@
 
 // KVOMutableArray/Core
 #define COCOAPODS_POD_AVAILABLE_KVOMutableArray_Core
-#define COCOAPODS_VERSION_MAJOR_KVOMutableArray_Core 0
-#define COCOAPODS_VERSION_MINOR_KVOMutableArray_Core 2
+#define COCOAPODS_VERSION_MAJOR_KVOMutableArray_Core 1
+#define COCOAPODS_VERSION_MINOR_KVOMutableArray_Core 0
 #define COCOAPODS_VERSION_PATCH_KVOMutableArray_Core 0
 
 // KVOMutableArray/ReactiveCocoaSupport
 #define COCOAPODS_POD_AVAILABLE_KVOMutableArray_ReactiveCocoaSupport
-#define COCOAPODS_VERSION_MAJOR_KVOMutableArray_ReactiveCocoaSupport 0
-#define COCOAPODS_VERSION_MINOR_KVOMutableArray_ReactiveCocoaSupport 2
+#define COCOAPODS_VERSION_MAJOR_KVOMutableArray_ReactiveCocoaSupport 1
+#define COCOAPODS_VERSION_MINOR_KVOMutableArray_ReactiveCocoaSupport 0
 #define COCOAPODS_VERSION_PATCH_KVOMutableArray_ReactiveCocoaSupport 0
 
 // ReactiveCocoa/Core

@@ -49,6 +49,35 @@
     // Run after each test method
 }
 
+- (void)testGetObjects
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
+    
+    NSRange range = NSMakeRange(1, 2);
+    __unsafe_unretained id *objects = (__unsafe_unretained id *) malloc(sizeof(void *) * range.length);
+    
+    [array getObjects:objects range:range];
+    
+    XCTAssertEqual(((NSNumber*)objects[0]).integerValue, 2);
+    XCTAssertEqual(((NSNumber*)objects[1]).integerValue, 3);
+    
+    free(objects);
+}
+
+- (void)testFastEnumeration
+{
+    BOOL executed = NO;
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
+    NSInteger i = 1;
+    for (NSNumber* num in array){
+        XCTAssertEqual(i, num.integerValue);
+        ++i;
+        executed = YES;
+    }
+    
+    XCTAssert(executed, @"should run the loop");
+}
+
 - (void)testContainsObject
 {
     KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];

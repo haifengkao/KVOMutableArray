@@ -1,8 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "NSObject+BlockObservation.h"
 
-@interface KVOMutableArray : NSObject<NSFastEnumeration, NSMutableCopying, NSCoding>
-@property (nonatomic, strong) NSMutableArray* arr;
+@interface KVOMutableArray : NSMutableArray<NSFastEnumeration, NSMutableCopying, NSCoding, NSCopying>
+
+- (NSMutableArray*)arr;
 
 - (instancetype)init;
 - (instancetype)initWithMutableArray:(NSMutableArray*)array NS_DESIGNATED_INITIALIZER;
@@ -16,7 +17,6 @@
 - (void)insertObject:(id)obj atIndex:(NSUInteger)index;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)obj;
-- (void)insertObject:(id)obj inArrAtIndex:(NSUInteger)index;
 - (void)removeObject:(id)anObject;
 - (void)removeAllObjects;
 - (void)removeLastObject;
@@ -25,6 +25,13 @@
 - (void)removeObjectsAtIndexes:(NSIndexSet *)indexes;
 - (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects;
 - (AMBlockToken*)addObserverWithTask:(AMBlockTask)task;
+
+// #warning [NSKeyedUnarchiver unarchiveObject] will return NSMutableArray
+// see http://stackoverflow.com/questions/18874493/nsmutablearray-subclass-not-calling-subclasss-initwithcoder-when-unarchiving
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+// #warning [kvoMutableArray copy] may return NSArray
+- (id)copyWithZone:(NSZone *)zone;
 
 #pragma mark - immutable fuctions
 @property (readonly) NSUInteger count;

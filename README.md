@@ -30,7 +30,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 #### Receive KVO notificaiton, YEAH!
 ```objective-c
-AMBlockToken* token = [kvoMutableArray addObserverWithTask:^BOOL(id obj, NSDictionary *change) {
+KVOMutableArray* array = [KVOMutableArray new];
+AMBlockToken* token = [array addObserverWithTask:^BOOL(id obj, NSDictionary *change) {
         NSIndexSet *indexes = change[NSKeyValueChangeIndexesKey];
         NSNumber *kind = change[NSKeyValueChangeKindKey];
         NSArray* new = change[NSKeyValueChangeNewKey];
@@ -55,6 +56,10 @@ AMBlockToken* token = [kvoMutableArray addObserverWithTask:^BOOL(id obj, NSDicti
 KVOMutableArray* array = [KVOMutableArray new];
 [array addObject:@"hello"];
 [array addObject:@"world"];
+```
+Alternatively, you can do
+```objective-c
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
 ```
 
 ### Init from the exisiting NSArray
@@ -106,6 +111,27 @@ KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hell
 [array.arr addObject:@"awesome!"];
 [array.arr removeObjectAtIndex:0];
 NSString* awesome = array.arr[0];
+```
+
+## Gotchas
+KVOMutableArray is now a subclass of NSMutableArray after 1.0 release.
+This change makes two gotchas available:
+
+First, the unarchived object is an NSMutableArray, not a KVOMutableArary. (No solution on SO so far)[http://stackoverflow.com/questions/18874493/nsmutablearray-subclass-not-calling-subclasss-initwithcoder-when-unarchiving].
+```objective-c
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@(1), @(2), @(3)] mutableCopy]];
+NSData* data = [NSKeyedArchiver archivedDataWithRootObject:array];
+
+// not a KVOMutableArray
+NSMutableArray* unarchived = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+```
+
+Second, the object returns from `copy` is a NSArray. There is no immutable KVOMutableArray, the only reasonable choice is to return immutable NSArray object.
+```objective-c
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)]];
+
+// not a KVOMutableArray
+NSArray* copy = [array copy];
 ```
 
 ## Requirements

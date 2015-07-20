@@ -1,13 +1,22 @@
 #import "KVOMutableArray.h"
+#import "KVOMutableArrayObserver.h"
 
+@interface KVOMutableArray()
+@property (nonatomic, strong) KVOMutableArrayObserver* observer;
+@end
 
 @implementation KVOMutableArray
+
+- (NSMutableArray*)arr
+{
+    return self.observer.arr;
+}
 
 - (instancetype)initWithMutableArray:(NSMutableArray*)array
 {
     if((self = [super init]))
     {
-        _arr = array;
+        _observer = [[KVOMutableArrayObserver alloc] initWithMutableArray:array];
     }
     return self;
 }
@@ -31,13 +40,15 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    NSMutableArray* arr = [aDecoder decodeObjectForKey:@"arr"];
+    NSMutableArray* arr = [[NSMutableArray alloc] initWithCoder:aDecoder];
+    //    KVOMutableArrayObserver* observer = [aDecoder decodeObjectForKey:@"observer"];
     return [self initWithMutableArray:arr];
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder;
 {
-    [encoder encodeObject:self.arr forKey:@"arr"];
+    [self.observer.arr encodeWithCoder:encoder];
+    //    [encoder encodeObject:self.observer forKey:@"observer"];
 }
 
 - (BOOL)isEqualToArray:(KVOMutableArray*)array
@@ -69,11 +80,6 @@
     return bufferIndex;
 }
 
-- (AMBlockToken*)addObserverWithTask:(AMBlockTask)task
-{    
-    return [self addObserverForKeyPath:@"arr" task:task];
-}
-
 #pragma mark - NSArray subclassing methods
 /*
   Any subclass of NSArray must override the primitive instance methods count and objectAtIndex:. 
@@ -84,11 +90,11 @@
  */
 - (NSUInteger)count
 {
-    return [self countOfArr];
+    return [self.observer countOfArr];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
-    return [self objectInArrAtIndex:index];
+    return [self.observer objectInArrAtIndex:index];
 }
 
 #pragma mark - NSMutableArray subclassing methods
@@ -102,26 +108,26 @@
  replaceObjectAtIndex:withObject:
  */
 - (void)insertObject:(id)obj atIndex:(NSUInteger)index {
-    [self insertObject:obj inArrAtIndex:index];
+    [self.observer insertObject:obj inArrAtIndex:index];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-    [self removeObjectFromArrAtIndex:index];
+    [self.observer removeObjectFromArrAtIndex:index];
 }
 
 - (void)addObject:(id)obj
 {
-    [self insertObject:obj inArrAtIndex:[self.arr count]];
+    [self.observer insertObject:obj inArrAtIndex:[self.arr count]];
 }
 
 - (void)removeLastObject
 {
-    NSMutableArray* arr = [self mutableArrayValueForKey:@"arr"];
+    NSMutableArray* arr = [self.observer mutableArrayValueForKey:@"arr"];
     [arr removeLastObject];
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)obj {
-    [self replaceObjectInArrAtIndex:index withObject:obj];
+    [self.observer replaceObjectInArrAtIndex:index withObject:obj];
 }
 
 
@@ -183,7 +189,7 @@
 
 - (void)removeObject:(id)anObject
 {    
-    NSMutableArray* arr = [self mutableArrayValueForKey:@"arr"];
+    NSMutableArray* arr = [self.observer mutableArrayValueForKey:@"arr"];
     [arr removeObject: anObject];
 }
 
@@ -201,67 +207,24 @@
 
 - (void)insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
 {
-    [self insertArr:objects atIndexes:indexes];
+    [self.observer insertArr:objects atIndexes:indexes];
 }
 
 - (void)removeObjectsAtIndexes:(NSIndexSet *)indexes
 {
-   [self removeArrAtIndexes:indexes];
+   [self.observer removeArrAtIndexes:indexes];
 }
 
 - (void)replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects
 {
-    [self replaceArrAtIndexes:indexes withArr:objects];
+    [self.observer replaceArrAtIndexes:indexes withArr:objects];
 }
 
-#pragma mark - Getter Indexed Accessors
-- (NSUInteger)countOfArr {
-    return [self.arr count];
-}
-
-- (id)objectInArrAtIndex:(NSUInteger)index {
-    if (index >= self.arr.count) {
-        return nil;
-    }
-    return (self.arr)[index];
-}
-
-// Implementing this method is optional, but offers additional performance gains. This method corresponds to the NSArray method getObjects:range:.
-- (void)getArr:(id __unsafe_unretained*)buffer range:(NSRange)inRange
+#pragma mark - NSCopying
+- (id)copyWithZone:(NSZone *)zone
 {
-    // Return the objects in the specified range in the provided buffer.
-    [self.arr getObjects:buffer range:inRange];
-}
-
-#pragma mark - Mutable Indexed Accessors
-- (void)replaceObjectInArrAtIndex:(NSUInteger)index withObject:(id)obj
-{
-    (self.arr)[index] = obj;
-}
-
-- (void)replaceArrAtIndexes:(NSIndexSet*)indexes withArr:(NSArray*)array
-{
-    [self.arr replaceObjectsAtIndexes:indexes withObjects:array];
-}
-
-- (void)removeObjectFromArrAtIndex:(NSUInteger)index
-{
-    [self.arr removeObjectAtIndex:index];
-}
-
-- (void)removeArrAtIndexes:(NSIndexSet *)indexes
-{
-    [self.arr removeObjectsAtIndexes:indexes];
-}
-
-- (void)insertObject:(id)obj inArrAtIndex:(NSUInteger)index
-{
-    [self.arr insertObject:obj atIndex:index];
-}
-
-- (void)insertArr:(NSArray *)array atIndexes:(NSIndexSet *)indexes
-{
-    [self.arr insertObjects:array atIndexes:indexes];
+    //  may return a NSArray, beware!!!
+    return [self.arr copy];
 }
 
 #pragma mark - NSMutableCopying
@@ -269,5 +232,12 @@
     KVOMutableArray* mutableSelf = [[KVOMutableArray allocWithZone:zone] initWithMutableArray:[self.arr mutableCopyWithZone:zone]];
     return mutableSelf;
 }
+
+#pragma mark - KVO
+- (AMBlockToken*)addObserverWithTask:(AMBlockTask)task
+{    
+    return [self.observer addObserverWithTask:task];
+}
+
 @end
 

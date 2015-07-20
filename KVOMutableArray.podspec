@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "KVOMutableArray"
-  s.version          = "0.5.0"
+  s.version          = "1.0.0"
   s.summary          = "A mutable array which can be key value observed (KVO)."
   s.description      = <<-DESC
                        KVOMutableArray provides the functionality to observe a NSMutableArray.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Core' do |sp|
-    sp.source_files = 'Pod/Classes/KVOMutableArray.{h,m}', 'Pod/Classes/NSObject+BlockObservation.{h,m}'
+    sp.source_files = 'Pod/Classes/KVOMutableArray.{h,m}', 'Pod/Classes/NSObject+BlockObservation.{h,m}', 'Pod/Classes/KVOMutableArrayObserver.{h,m}'
   end
 
   s.subspec 'ReactiveCocoaSupport' do |sp|
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   end
 
   s.default_subspec = 'Core'
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'Pod/Classes/**/{KVOMutableArray,NSObject+BlockObservation}.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
