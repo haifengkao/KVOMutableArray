@@ -61,25 +61,6 @@
     return [self.arr isEqualToArray:array.arr];
 }
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len
-{
-    NSUInteger arrayIndex = (NSUInteger)state->state;
-    NSUInteger arraySize = [self.arr count];
-    NSUInteger bufferIndex = 0;
-    
-    while ((arrayIndex < arraySize) && (bufferIndex < len)) {
-        buffer[bufferIndex] = (self.arr)[arrayIndex];
-        arrayIndex++;
-        bufferIndex++;
-    }
-    
-    state->state = (unsigned long)arrayIndex;
-    state->itemsPtr = buffer; // Assigning '__autoreleasing id *' to '__unsafe_unretained id*' changes retain/release properties of pointer
-    //state->mutationsPtr = (unsigned long *)self;
-    state->mutationsPtr = &state->extra[0]; //TODO: mutationPtr is disabled
-    return bufferIndex;
-}
-
 #pragma mark - NSArray subclassing methods
 /*
   Any subclass of NSArray must override the primitive instance methods count and objectAtIndex:. 
@@ -95,6 +76,17 @@
 
 - (id)objectAtIndex:(NSUInteger)index {
     return [self.observer objectInArrAtIndex:index];
+}
+
+#pragma mark - NSArray subclassing methods, not on Apple's doc but required
+- (id)firstObject
+{
+    return self.arr.firstObject;
+}
+
+- (id)lastObject
+{
+    return self.arr.lastObject;
 }
 
 #pragma mark - NSMutableArray subclassing methods
@@ -130,28 +122,21 @@
     [self.observer replaceObjectInArrAtIndex:index withObject:obj];
 }
 
-#pragma mark - immutable convenience functions
-- (id)firstObject
-{
-    return self.arr.firstObject;
-}
-
-- (id)lastObject
-{
-    return self.arr.lastObject;
-}
-
-- (id)objectAtIndexedSubscript:(NSUInteger)idx
-{
-    return [self.arr objectAtIndexedSubscript:idx];
-}
-
-- (NSUInteger)indexOfObject:(id)object
-{
-    return [self.arr indexOfObject:object];
-}
+#pragma mark - not required immutable convenience functions
+//- (id)objectAtIndexedSubscript:(NSUInteger)idx
+//{
+//    return [self.arr objectAtIndexedSubscript:idx];
+//}
+//
+//- (NSUInteger)indexOfObject:(id)object
+//{
+//    return [self.arr indexOfObject:object];
+//}
 
 #pragma mark - mutable convenience functions
+// we need to keep the following methods for perfomance reasons
+// the default NSMutableArray implementation will send the insertion event one by one, which is inefficient
+
 - (void)addObjectsFromArray:(NSArray*)array
 {
     NSUInteger count = self.arr.count;
@@ -180,29 +165,6 @@
 //    [arr removeAllObjects];
 }
 
-- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx
-{
-    // the implementation of replaceObjectAtIndex uses setObject:atIndexedSubscript: of self.arr
-    [self replaceObjectAtIndex:idx withObject:obj];
-}
-
-- (void)removeObject:(id)anObject
-{    
-    NSMutableArray* arr = [self.observer mutableArrayValueForKey:@"arr"];
-    [arr removeObject: anObject];
-}
-
-- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
-{
-    id obj1 = [self objectAtIndex:idx1];
-    id obj2 = [self objectAtIndex:idx2];
-    
-    if (!obj1 || !obj2) {
-        return;
-    }
-    [self replaceObjectAtIndex:idx1 withObject:obj2];
-    [self replaceObjectAtIndex:idx2 withObject:obj1];
-}
 
 - (void)insertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
 {
@@ -218,6 +180,52 @@
 {
     [self.observer replaceArrAtIndexes:indexes withArr:objects];
 }
+
+#pragma mark - not required mutable convenience functions
+// the abstract NSMutableArray can handle the following methods correctly
+
+//- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx
+//{
+//    // the implementation of replaceObjectAtIndex uses setObject:atIndexedSubscript: of self.arr
+//    [self replaceObjectAtIndex:idx withObject:obj];
+//}
+
+//- (void)removeObject:(id)anObject
+//{    
+//    NSMutableArray* arr = [self.observer mutableArrayValueForKey:@"arr"];
+//    [arr removeObject: anObject];
+//}
+
+//- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2
+//{
+//    id obj1 = [self objectAtIndex:idx1];
+//    id obj2 = [self objectAtIndex:idx2];
+//    
+//    if (!obj1 || !obj2) {
+//        return;
+//    }
+//    [self replaceObjectAtIndex:idx1 withObject:obj2];
+//    [self replaceObjectAtIndex:idx2 withObject:obj1];
+//}
+
+//- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])buffer count:(NSUInteger)len
+//{
+//    NSUInteger arrayIndex = (NSUInteger)state->state;
+//    NSUInteger arraySize = [self.arr count];
+//    NSUInteger bufferIndex = 0;
+//    
+//    while ((arrayIndex < arraySize) && (bufferIndex < len)) {
+//        buffer[bufferIndex] = (self.arr)[arrayIndex];
+//        arrayIndex++;
+//        bufferIndex++;
+//    }
+//    
+//    state->state = (unsigned long)arrayIndex;
+//    state->itemsPtr = buffer; // Assigning '__autoreleasing id *' to '__unsafe_unretained id*' changes retain/release properties of pointer
+//    //state->mutationsPtr = (unsigned long *)self;
+//    state->mutationsPtr = &state->extra[0]; //TODO: mutationPtr is disabled
+//    return bufferIndex;
+//}
 
 #pragma mark - NSCopying
 - (id)copyWithZone:(NSZone *)zone

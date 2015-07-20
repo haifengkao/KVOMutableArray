@@ -39,6 +39,13 @@
     // Run after each test method
 }
 
+- (void)testInitWithCapacity
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithCapacity:3];
+    XCTAssert(array, @"capacity init works");
+    XCTAssert(array.count == 0, @"the initial size is 0");
+}
+
 - (void)testGetObjects
 {
     KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
@@ -150,9 +157,11 @@
 
     KVOMutableArray* array = [[KVOMutableArray alloc] init];
     [array addObject:@"hello"];
+    [array addObject:@"123"];
     array[0] = @"world";
     
     XCTAssertEqual(array[0], @"world");
+    XCTAssertEqual(array[1], @"123");
 }
 
 
@@ -209,6 +218,8 @@
     KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello"] mutableCopy]];
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
         NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        
+        XCTAssert(indices.firstIndex == 0, @"the first object is being replaced");
         NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
         NSLog(@"it changed: %@", kind);
         
@@ -226,6 +237,10 @@
     KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello", @"world"] mutableCopy]];
     self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
         NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        
+        XCTAssert(indices.firstIndex == 0, @"");
+        XCTAssert(indices.lastIndex == 1, @"");
+        
         NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
         NSLog(@"it changed: %@", kind);
         
@@ -305,6 +320,93 @@
     }];
     
     [array addObjectsFromArray:@[@"world", @"123"]];
+}
+
+- (void)testKVOExchangeSameObject
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@"hello", @"world", @"123", nil];
+    self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
+        
+        NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
+        NSArray* new = change[NSKeyValueChangeNewKey];
+        NSArray* old = change[NSKeyValueChangeOldKey];
+        
+        XCTAssertEqual(kind.integerValue, NSKeyValueChangeReplacement, @"");
+        XCTAssertTrue(indices.count == 1, @"");
+        XCTAssertTrue(indices.firstIndex == 1, @"");
+        XCTAssertEqualObjects(new, @[@"world"], @"");
+        XCTAssertEqualObjects(old, @[@"world"], @"");
+        
+        return YES;
+    }];
+    [array exchangeObjectAtIndex:1 withObjectAtIndex:1];
+}
+
+- (void)testKVOExchangeObject
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@"hello", @"world", @"123", nil];
+    __block NSInteger i = 0;
+    self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
+        
+        NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
+        NSArray* new = change[NSKeyValueChangeNewKey];
+        NSArray* old = change[NSKeyValueChangeOldKey];
+        
+        XCTAssertEqual(kind.integerValue, NSKeyValueChangeReplacement, @"");
+        if (i == 0) {
+            // replace first index
+            XCTAssertTrue(indices.count == 1, @"");
+            XCTAssertTrue(indices.firstIndex == 1, @"");
+            XCTAssertEqualObjects(new, @[@"123"], @"");
+            XCTAssertEqualObjects(old, @[@"world"], @"");
+        } else if (i == 1) {
+            // replace second index
+            XCTAssertTrue(indices.count == 1, @"");
+            XCTAssertTrue(indices.firstIndex == 2, @"");
+            XCTAssertEqualObjects(new, @[@"world"], @"");
+            XCTAssertEqualObjects(old, @[@"123"], @"");
+        }
+        
+        ++i;
+        
+        return YES;
+    }];
+    [array exchangeObjectAtIndex:1 withObjectAtIndex:2];
+}
+
+- (void)testKvoRemoveObject
+{
+    KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@"hello", @"world", @"123", nil];
+    
+    self.token = [array addObserverWithTask:^BOOL(id obj, NSDictionary* change){
+        
+        XCTAssertFalse(receiveDelete, @"the removal event should run exactly once");
+        
+        NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        
+        XCTAssertTrue(indices.count == 1, @"");
+        XCTAssertTrue(indices.firstIndex == 1, @"");
+        
+        NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
+        NSArray* new = change[NSKeyValueChangeNewKey];
+        NSArray* old = change[NSKeyValueChangeOldKey];
+        if ([kind integerValue] == NSKeyValueChangeInsertion)  // Rows were added{
+        {
+            XCTAssertTrue(NO, @"should not run here");
+        }
+        else if ([kind integerValue] == NSKeyValueChangeRemoval)  // Rows were removed
+        {
+            receiveDelete = YES;
+            XCTAssertTrue([old[0] isEqualToString:@"world"], @"should get remove event");
+            XCTAssertNil(new, @"no new values");
+        } else {
+            XCTAssert(NO, @"something goes wrong");
+        }
+        return YES;
+    }];
+    [array removeObject:@"world"];
 }
 
 - (void)testKvoRemoveAllObjects

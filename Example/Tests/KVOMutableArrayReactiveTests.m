@@ -37,15 +37,31 @@
     KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello"] mutableCopy]];
     arrayRef = array;
 @autoreleasepool {
+    
     RACSignal* signal = [array changeSignal];
     signalRef = signal;
     
+    __block NSInteger i = 0;
     [signal subscribeNext:^(RACTuple* t) {
-        NSArray *wholeArray = t.first;
+        NSArray *array = t.first;
         NSDictionary *change= t.second;
+        
         
         NSLog(@"it changed: %@", [change objectForKey:NSKeyValueChangeKindKey]);
         NSIndexSet *indices = [change objectForKey:NSKeyValueChangeIndexesKey];
+        if (i == 0) {
+            // insert @"world"
+            NSArray* expected = @[@"hello", @"world"];
+            XCTAssertEqualObjects(array, expected, @"the unmodifed array");
+            XCTAssert(indices.firstIndex == 1, @"world is inserted at index 1");
+        } else if (i == 1) {
+            // remove @"world"
+            NSArray* expected = @[@"hello"];
+            XCTAssertEqualObjects(array, expected, @"the unmodifed array");
+            XCTAssert(indices.firstIndex == 1, @"world is removed at index 1");
+        }
+        ++i;
+        
         
         NSNumber *kind = [change objectForKey:NSKeyValueChangeKindKey];
         NSArray* new = change[NSKeyValueChangeNewKey];
@@ -60,7 +76,7 @@
         else if ([kind integerValue] == NSKeyValueChangeRemoval)  // Rows were removed
         {
             objectRemoved = YES;
-            XCTAssertTrue([old[0] isEqualToString:@"world"], @"should get add event");
+            XCTAssertTrue([old[0] isEqualToString:@"world"], @"should get remove event");
             XCTAssertNil(new, @"no new values");
         }
     } completed:^{
