@@ -30,16 +30,6 @@
 @end
 @implementation KvoMutableArrayTest
 
-- (void)setUpClass {
-    // Run at start of all tests in the class
-}
-
-- (void)tearDownClass {
-    // Run at end of all tests in the class
-    self.array = nil;
-    self.token = nil;
-}
-
 - (void)setUp {
     // Run before each test method
     receiveReplacement = receiveAdd = receiveDelete = NO;
