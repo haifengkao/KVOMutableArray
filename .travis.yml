@@ -4,16 +4,11 @@
 
 language: objective-c
 before_install:
-  - gem i slather --no-rdoc
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
-install:
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-script:
-- set -o pipefail && xcodebuild test -workspace Example/KVOMutableArray.xcworkspace -scheme KVOMutableArray-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
-- pod lib lint --quick
-
+  - brew update
+  - "brew uninstall xctool; brew install xctool --HEAD;"
+  - gem i cocoapods --no-ri --no-rdoc
+  - "gem install slather --no-rdoc --no-ri --no-document --quiet"
+xcode_workspace: Example/KVOMutableArray.xcworkspace
+xcode_scheme: KVOMutableArray-Example
+xcode_sdk: iphonesimulator
 after_success: slather
