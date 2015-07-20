@@ -117,7 +117,9 @@ NSString* awesome = array.arr[0];
 KVOMutableArray is now a subclass of NSMutableArray after 1.0 release.
 This change makes two gotchas available:
 
-First, the unarchived object is an NSMutableArray, not a KVOMutableArary. [No solution on SO so far](http://stackoverflow.com/questions/18874493/nsmutablearray-subclass-not-calling-subclasss-initwithcoder-when-unarchiving).
+First, the unarchived object is an NSMutableArray, not a KVOMutableArary. 
+[No solution on StackOverflow so far](http://stackoverflow.com/questions/18874493/nsmutablearray-subclass-not-calling-subclasss-initwithcoder-when-unarchiving).
+
 ```objective-c
 KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)]];
 NSData* data = [NSKeyedArchiver archivedDataWithRootObject:array];
