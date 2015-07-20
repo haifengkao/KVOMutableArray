@@ -2,4 +2,4 @@
 #
 coverage_service: coveralls
 xcodeproj: Example/KVOMutableArray.xcodeproj
-source_directory: /Pod/Classes/
+source_directory: Pod/Classes
