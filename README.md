@@ -64,8 +64,8 @@ KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(
 
 ### Init from the exisiting NSArray
 ```objective-c
-NSMutableArray* someArray = [@[@(1), @(2), @(3), @(4)] mutableCopy];
-KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:someArray];
+NSArray* someArray = @[@(1), @(2), @(3), @(4)];
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:someArray];
 ```
 
 ### Register KVO events
@@ -98,7 +98,7 @@ NSMutableArray* theMutableArray = array.arr;
 
 Manipulating the objects from KVOMutableArray
 ```objective-c
-KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello", @"world"] mutableCopy]];
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@"hello", @"world"]];
 [array removeLastObject];
 [array addObject:@"awesome!"];
 [array removeObjectAtIndex:0];
@@ -106,7 +106,7 @@ NSString* awesome = array[0];
 ```
 Or from the enclosing NSMutableArray
 ```objective-c
-KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@"hello", @"world"] mutableCopy]];
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@"hello", @"world"]];
 [array.arr removeLastObject];
 [array.arr addObject:@"awesome!"];
 [array.arr removeObjectAtIndex:0];
@@ -117,9 +117,9 @@ NSString* awesome = array.arr[0];
 KVOMutableArray is now a subclass of NSMutableArray after 1.0 release.
 This change makes two gotchas available:
 
-First, the unarchived object is an NSMutableArray, not a KVOMutableArary. (No solution on SO so far)[http://stackoverflow.com/questions/18874493/nsmutablearray-subclass-not-calling-subclasss-initwithcoder-when-unarchiving].
+First, the unarchived object is an NSMutableArray, not a KVOMutableArary. [No solution on SO so far](http://stackoverflow.com/questions/18874493/nsmutablearray-subclass-not-calling-subclasss-initwithcoder-when-unarchiving).
 ```objective-c
-KVOMutableArray* array = [[KVOMutableArray alloc] initWithMutableArray:[@[@(1), @(2), @(3)] mutableCopy]];
+KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)]];
 NSData* data = [NSKeyedArchiver archivedDataWithRootObject:array];
 
 // not a KVOMutableArray
@@ -128,7 +128,7 @@ NSMutableArray* unarchived = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 
 Second, the object returns from `copy` is a NSArray. There is no immutable KVOMutableArray, the only reasonable choice is to return immutable NSArray object.
 ```objective-c
-KVOMutableArray* array = [[KVOMutableArray alloc] initWithArray:@[@(1), @(2), @(3)]];
+KVOMutableArray* array = [[KVOMutableArray alloc] init];
 
 // not a KVOMutableArray
 NSArray* copy = [array copy];
