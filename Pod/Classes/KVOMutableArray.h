@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "NSObject+BlockObservation.h"
 
-@interface KVOMutableArray : NSMutableArray<NSFastEnumeration, NSMutableCopying, NSCoding, NSCopying>
+@interface KVOMutableArray<ObjectType> : NSMutableArray<NSFastEnumeration, NSMutableCopying, NSCoding, NSCopying>
 
 - (NSMutableArray*)arr;
 
