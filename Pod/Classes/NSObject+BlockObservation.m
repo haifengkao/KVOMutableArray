@@ -35,6 +35,14 @@ static NSInteger AMObserverTrampolineContext;
 @end
 
 @implementation AMObserverTrampoline
+
+- (instancetype)init
+{
+    NSAssert(NO, @"just don't use init");
+
+    return [self initObservingObject:nil keyPath:nil onQueue:nil task:nil token:nil];
+}
+
 - (AMObserverTrampoline *)initObservingObject:(NSObject*)obj keyPath:(NSString *)newKeyPath onQueue:(NSOperationQueue *)newQueue task:(AMBlockTask)newTask token:(AMBlockToken *)theToken
 {
     if (!(self = [super init])) return nil;
@@ -166,6 +174,12 @@ static dispatch_queue_t AMObserverMutationQueueCreatingIfNecessary()
 @end
 
 @implementation AMBlockToken
+
+- (instancetype)init
+{
+    return [self initWithObject:nil uuid:@""];
+}
+
 - (instancetype)initWithObject:(NSObject*)obj uuid:(NSString*)uuid
 {
     if (self = [super init]) {

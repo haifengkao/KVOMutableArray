@@ -12,6 +12,7 @@
 @interface KVOMutableArrayObserver : NSObject
 @property (nonatomic, strong) NSMutableArray* arr;
 
+- (instancetype)init;
 - (instancetype)initWithMutableArray:(NSMutableArray*)array NS_DESIGNATED_INITIALIZER;
 - (AMBlockToken*)addObserverWithTask:(AMBlockTask)task;
 

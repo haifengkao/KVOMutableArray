@@ -10,6 +10,11 @@
 
 @implementation KVOMutableArrayObserver
 
+- (instancetype)init
+{
+    return [self initWithMutableArray:[NSMutableArray new]];
+}
+
 - (instancetype)initWithMutableArray:(NSMutableArray*)array
 {
     if((self = [super init]))
