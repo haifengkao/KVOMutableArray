@@ -7,8 +7,7 @@ before_install:
   - brew update
   - rvm use system # see https://github.com/CocoaPods/CocoaPods/issues/4711
   - "brew uninstall xctool; brew install xctool --HEAD;"
-  - gem i cocoapods --user-install --bindir ~/bin --no-ri --no-rdoc
-  - "gem install slather --no-rdoc --no-ri --no-document --quiet"
+  - gem install cocoapods slather --user-install --bindir ~/bin --no-ri --no-rdoc --no-document --quiet
 xcode_workspace: Example/KVOMutableArray.xcworkspace
 xcode_scheme: KVOMutableArray-Example
 xcode_sdk: iphonesimulator
