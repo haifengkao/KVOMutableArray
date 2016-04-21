@@ -46,6 +46,17 @@
     XCTAssert(array.count == 0, @"the initial size is 0");
 }
 
+- (void)testGenerics
+{
+    KVOMutableArray<NSNumber*>* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
+    KVOMutableArray<NSNumber*>* array2 = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];
+
+    XCTAssertTrue([array isEqualToArray:array2]);
+    XCTAssertEqual(((NSNumber*)array[0]).integerValue, 1);
+    XCTAssertEqual(((NSNumber*)array[1]).integerValue, 2);
+
+}
+
 - (void)testGetObjects
 {
     KVOMutableArray* array = [[KVOMutableArray alloc] initWithObjects:@(1), @(2), @(3), nil];

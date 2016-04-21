@@ -5,6 +5,7 @@
 language: objective-c
 before_install:
   - brew update
+  - rvm use system # see https://github.com/CocoaPods/CocoaPods/issues/4711
   - "brew uninstall xctool; brew install xctool --HEAD;"
   - gem i cocoapods --no-ri --no-rdoc
   - "gem install slather --no-rdoc --no-ri --no-document --quiet"
