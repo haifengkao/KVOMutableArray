@@ -2,4 +2,9 @@
 #
 coverage_service: coveralls
 xcodeproj: Example/KVOMutableArray.xcodeproj
+scheme: KVOMutableArray-Example 
 source_directory: Pod/Classes
+
+# if you want to invoke slather on the local machine
+# gem i slather
+# slather coverage -s --scheme KVOMutableArray-Example --workspace ./Example/KVOMutableArray.xcworkspace ./Example/KVOMutableArray.xcodeproj
