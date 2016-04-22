@@ -2,6 +2,7 @@
 #
 coverage_service: coveralls
 xcodeproj: Example/KVOMutableArray.xcodeproj
+workspace: Example/KVOMutableArray.xcworkspace
 scheme: KVOMutableArray-Example 
 source_directory: Pod/Classes
 
