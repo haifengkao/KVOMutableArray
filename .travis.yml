@@ -4,9 +4,11 @@
 
 language: objective-c
 osx_image: xcode7.3
-before_install: rvm use $RVM_RUBY_VERSION
-install: 
-  - bundle install --without=documentation --path ../travis_bundle_dir
+before_install:
+  - brew update
+  - rvm use system # see https://github.com/CocoaPods/CocoaPods/issues/4711
+  - "brew uninstall xctool; brew install xctool --HEAD;"
+  - gem install cocoapods slather --user-install --bindir ~/bin --no-ri --no-rdoc --no-document --quiet
 xcode_workspace: Example/KVOMutableArray.xcworkspace
 xcode_scheme: KVOMutableArray-Example
 xcode_sdk: iphonesimulator
