@@ -11,14 +11,14 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		C8459B197E363D2D9C9DE80C /* libPods-KVOMutableArray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AECF54F0A6DFABAFD607D6 /* libPods-KVOMutableArray.a */; };
+		DB2546CEAED9C047DC3CF869 /* Pods_KVOMutableArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DD6EDF7918F1517426270F /* Pods_KVOMutableArray.framework */; };
 		F94F79AC1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F94F79AB1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m */; };
 		F9F8383D1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F8383C1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3274D19D6981C3750CE3A845 /* Pods-KVOMutableArray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVOMutableArray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVOMutableArray/Pods-KVOMutableArray.debug.xcconfig"; sourceTree = "<group>"; };
 		407C677356A709E3D6D32462 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4E83288C06530151CE044777 /* Pods-KVOMutableArray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVOMutableArray.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVOMutableArray/Pods-KVOMutableArray.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -28,9 +28,9 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71BAE98F2D8FA8170C661325 /* KVOMutableArray.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KVOMutableArray.podspec; path = ../KVOMutableArray.podspec; sourceTree = "<group>"; };
-		A3B79A965287A98BF5AC9827 /* Pods-KVOMutableArray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVOMutableArray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVOMutableArray/Pods-KVOMutableArray.debug.xcconfig"; sourceTree = "<group>"; };
+		D3DD6EDF7918F1517426270F /* Pods_KVOMutableArray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVOMutableArray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D491AA07A8ECF6B5DA0F2D89 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		D9AECF54F0A6DFABAFD607D6 /* libPods-KVOMutableArray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVOMutableArray.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC3FA6D6FD6BAE5903A01D4 /* Pods-KVOMutableArray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVOMutableArray.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVOMutableArray/Pods-KVOMutableArray.release.xcconfig"; sourceTree = "<group>"; };
 		F94F79AB1B0B4C1D00D3AA72 /* KVOMutableArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOMutableArrayTests.m; sourceTree = "<group>"; };
 		F9F8383C1B1CAB2B00FBFABA /* KVOMutableArrayReactiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOMutableArrayReactiveTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,18 +43,18 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				C8459B197E363D2D9C9DE80C /* libPods-KVOMutableArray.a in Frameworks */,
+				DB2546CEAED9C047DC3CF869 /* Pods_KVOMutableArray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AFBFF8073D0203583795524 /* Pods */ = {
+		39130EBFE510EC6222E31374 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A3B79A965287A98BF5AC9827 /* Pods-KVOMutableArray.debug.xcconfig */,
-				4E83288C06530151CE044777 /* Pods-KVOMutableArray.release.xcconfig */,
+				3274D19D6981C3750CE3A845 /* Pods-KVOMutableArray.debug.xcconfig */,
+				EFC3FA6D6FD6BAE5903A01D4 /* Pods-KVOMutableArray.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -66,7 +66,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				1AFBFF8073D0203583795524 /* Pods */,
+				39130EBFE510EC6222E31374 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +85,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				D9AECF54F0A6DFABAFD607D6 /* libPods-KVOMutableArray.a */,
+				D3DD6EDF7918F1517426270F /* Pods_KVOMutableArray.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,11 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "KVOMutableArray" */;
 			buildPhases = (
-				88D1260D365B5FDBA8FEE41D /* Check Pods Manifest.lock */,
+				582714AECDDA67510D3490D5 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				C12DCDB9472824A934EB2F02 /* Copy Pods Resources */,
+				DFA7CCD03993FB14C7E610E8 /* [CP] Embed Pods Frameworks */,
+				4F029F6B94819524A911F46C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,34 +188,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		88D1260D365B5FDBA8FEE41D /* Check Pods Manifest.lock */ = {
+		4F029F6B94819524A911F46C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C12DCDB9472824A934EB2F02 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVOMutableArray/Pods-KVOMutableArray-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		582714AECDDA67510D3490D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFA7CCD03993FB14C7E610E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVOMutableArray/Pods-KVOMutableArray-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -321,7 +337,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3B79A965287A98BF5AC9827 /* Pods-KVOMutableArray.debug.xcconfig */;
+			baseConfigurationReference = 3274D19D6981C3750CE3A845 /* Pods-KVOMutableArray.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -345,7 +361,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E83288C06530151CE044777 /* Pods-KVOMutableArray.release.xcconfig */;
+			baseConfigurationReference = EFC3FA6D6FD6BAE5903A01D4 /* Pods-KVOMutableArray.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

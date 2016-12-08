@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <KVOMutableArray+ReactiveCocoaSupport.h>
-#import <RACTuple.h>
+#import "KVOMutableArray+ReactiveCocoaSupport.h"
+@import ReactiveObjC;
 
 @interface KVOMutableArrayReactiveTests : XCTestCase
 

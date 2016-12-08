@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "KVOMutableArray"
-  s.version          = "1.6.0"
+  s.version          = "2.0.0"
   s.summary          = "A mutable array which can be key value observed (KVO)."
   s.description      = <<-DESC
                        KVOMutableArray provides the functionality to observe a NSMutableArray.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/haifengkao/KVOMutableArray.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.subspec 'Core' do |sp|
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'ReactiveCocoaSupport' do |sp|
-    sp.dependency 'ReactiveCocoa/Core'
+    sp.dependency 'ReactiveObjC'
     sp.dependency 'KVOMutableArray/Core'
     sp.source_files = 'Pod/Classes/KVOMutableArray+ReactiveCocoaSupport.{h,m}'
   end

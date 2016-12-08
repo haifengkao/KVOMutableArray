@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <KVOMutableArray.h>
+#import "KVOMutableArray.h"
 
 @interface KvoMutableArrayTest : XCTestCase
 {

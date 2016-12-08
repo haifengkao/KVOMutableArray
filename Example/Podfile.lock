@@ -1,21 +1,21 @@
 PODS:
-  - KVOMutableArray/Core (1.0.0)
-  - KVOMutableArray/ReactiveCocoaSupport (1.0.0):
+  - KVOMutableArray/Core (2.0.0)
+  - KVOMutableArray/ReactiveCocoaSupport (2.0.0):
     - KVOMutableArray/Core
-    - ReactiveCocoa/Core
-  - ReactiveCocoa/Core (2.5):
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.5)
+    - ReactiveObjC
+  - ReactiveObjC (2.1.0)
 
 DEPENDENCIES:
   - KVOMutableArray/ReactiveCocoaSupport (from `../`)
 
 EXTERNAL SOURCES:
   KVOMutableArray:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  KVOMutableArray: d5ba30516c81970449ee4f70ecd4894a23660068
-  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  KVOMutableArray: db88b7ee1fd805540e3541d9948839aca760f2c9
+  ReactiveObjC: 2edae120982d8e6d5407503a10edcfdd87eb8639
 
-COCOAPODS: 0.37.2
+PODFILE CHECKSUM: df85dd969b745100ca58ee1b352c39dddd75fc93
+
+COCOAPODS: 1.1.1
