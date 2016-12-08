@@ -1,0 +1,6 @@
+framework module Pods_KVOMutableArray_Tests {
+  umbrella header "Pods-KVOMutableArray_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

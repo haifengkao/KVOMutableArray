@@ -1,6 +1,7 @@
 # KVOMutableArray
 `KVOMutableArray` is a proxy object which supports key value observation of NSMutableArray. 
 
+[![Coverage Status](https://codecov.io/gh/haifengkao/KVOMutableArray/branch/master/graph/badge.svg)](https://codecov.io/gh/haifengkao/KVOMutableArray)
 [![CI Status](http://img.shields.io/travis/haifengkao/KVOMutableArray.svg?style=flat)](https://travis-ci.org/haifengkao/KVOMutableArray)
 [![Coverage Status](https://coveralls.io/repos/haifengkao/KVOMutableArray/badge.svg?branch=master&service=github)](https://coveralls.io/github/haifengkao/KVOMutableArray?branch=master)
 [![Version](https://img.shields.io/cocoapods/v/KVOMutableArray.svg?style=flat)](http://cocoapods.org/pods/KVOMutableArray)

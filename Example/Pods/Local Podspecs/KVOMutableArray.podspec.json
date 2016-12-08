@@ -17,14 +17,14 @@
   },
   "requires_arc": true,
   "default_subspecs": "Core",
-  "public_header_files": "Pod/Classes/**/{KVOMutableArray,NSObject+BlockObservation}.h",
+  "public_header_files": "KVOMutableArray/Classes/**/{KVOMutableArray,NSObject+BlockObservation}.h",
   "subspecs": [
     {
       "name": "Core",
       "source_files": [
-        "Pod/Classes/KVOMutableArray.{h,m}",
-        "Pod/Classes/NSObject+BlockObservation.{h,m}",
-        "Pod/Classes/KVOMutableArrayObserver.{h,m}"
+        "KVOMutableArray/Classes/KVOMutableArray.{h,m}",
+        "KVOMutableArray/Classes/NSObject+BlockObservation.{h,m}",
+        "KVOMutableArray/Classes/KVOMutableArrayObserver.{h,m}"
       ]
     },
     {
@@ -37,7 +37,7 @@
 
         ]
       },
-      "source_files": "Pod/Classes/KVOMutableArray+ReactiveCocoaSupport.{h,m}"
+      "source_files": "KVOMutableArray/Classes/KVOMutableArray+ReactiveCocoaSupport.{h,m}"
     }
   ]
 }

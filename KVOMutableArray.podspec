@@ -28,17 +28,17 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'Core' do |sp|
-    sp.source_files = 'Pod/Classes/KVOMutableArray.{h,m}', 'Pod/Classes/NSObject+BlockObservation.{h,m}', 'Pod/Classes/KVOMutableArrayObserver.{h,m}'
+    sp.source_files = 'KVOMutableArray/Classes/KVOMutableArray.{h,m}', 'KVOMutableArray/Classes/NSObject+BlockObservation.{h,m}', 'KVOMutableArray/Classes/KVOMutableArrayObserver.{h,m}'
   end
 
   s.subspec 'ReactiveCocoaSupport' do |sp|
     sp.dependency 'ReactiveObjC'
     sp.dependency 'KVOMutableArray/Core'
-    sp.source_files = 'Pod/Classes/KVOMutableArray+ReactiveCocoaSupport.{h,m}'
+    sp.source_files = 'KVOMutableArray/Classes/KVOMutableArray+ReactiveCocoaSupport.{h,m}'
   end
 
   s.default_subspec = 'Core'
-  s.public_header_files = 'Pod/Classes/**/{KVOMutableArray,NSObject+BlockObservation}.h'
+  s.public_header_files = 'KVOMutableArray/Classes/**/{KVOMutableArray,NSObject+BlockObservation}.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

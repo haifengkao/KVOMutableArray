@@ -1,9 +1,10 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
-platform :ios,'8.0'
 use_frameworks!
 
-target 'KVOMutableArray' do
-  pod "KVOMutableArray/ReactiveCocoaSupport", :path => "../"
-end
+target 'KVOMutableArray_Example' do
+  pod 'KVOMutableArray/ReactiveCocoaSupport', :path => '../'
 
+  target 'KVOMutableArray_Tests' do
+    inherit! :search_paths
+    pod 'KVOMutableArray/ReactiveCocoaSupport', :path => '../'
+  end
+end

@@ -7,8 +7,8 @@
 //
 
 #import "KVOMutableArray.h"
-#import "RACSignal.h"
 
+@class RACSignal;
 @interface KVOMutableArray (ReactiveCocoaSupport)
 - (RACSignal*)changeSignal;
 @end

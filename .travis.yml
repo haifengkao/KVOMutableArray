@@ -3,13 +3,14 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
-osx_image: xcode7.3
-before_install:
-  - brew update
-  - rvm use system # see https://github.com/CocoaPods/CocoaPods/issues/4711
-  - "brew uninstall xctool; brew install xctool --HEAD;"
-  - gem install cocoapods slather --user-install --bindir ~/bin --no-ri --no-rdoc --no-document --quiet
-xcode_workspace: Example/KVOMutableArray.xcworkspace
-xcode_scheme: KVOMutableArray-Example
-xcode_sdk: iphonesimulator
-after_success: slather
+
+install:
+  # too slow
+  #- bundle exec pod repo update --silent
+  - pod install --project-directory=Example
+
+script:
+  - set -o pipefail && xcodebuild test -workspace Example/KVOMutableArray.xcworkspace -scheme KVOMutableArray-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' ONLY_ACTIVE_ARCH=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c
+
+after_success: 
+  - bash <(curl -s https://codecov.io/bash)
