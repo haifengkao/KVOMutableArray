@@ -4,7 +4,6 @@
 
 #import "KVOMutableArray.h"
 #import "NSObject+BlockObservation.h"
-#import "KVOMutableArrayObserver.h"
 #import "KVOMutableArray+ReactiveCocoaSupport.h"
 
 FOUNDATION_EXPORT double KVOMutableArrayVersionNumber;

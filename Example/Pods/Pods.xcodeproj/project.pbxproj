@@ -77,12 +77,12 @@
 		58A6E4BA8A0DF6A2FF4B3968AC0C2EA1 /* Pods-KVOMutableArray_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AD712707339ED2B9A50CAA7BA74CFA /* Pods-KVOMutableArray_Tests-dummy.m */; };
 		5C6561FE23F6D7BB4FD8F0C8A512EBAE /* UITableViewHeaderFooterView+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B0270B3E2B39120D49AD790F506C969 /* UITableViewHeaderFooterView+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60ECFBA3B104C7617B18974A7FB92D89 /* RACGroupedSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C719E24F39ACD059700044776A86725 /* RACGroupedSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6201CE8C7227882C58A2CB0D1CF03544 /* KVOMutableArrayObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = E00BA0A580D3A4CA0522439FFD14F70A /* KVOMutableArrayObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65D0A7F37F4566D8A1A94EDEDC344498 /* KVOMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3717BC05F93D009BED5612FDAF7AC3 /* KVOMutableArray.m */; };
 		663661F8D94922EEFD548836F83C9F40 /* NSInvocation+RACTypeParsing.h in Headers */ = {isa = PBXBuildFile; fileRef = 0398D09C9287DFFF30FD8652265456B8 /* NSInvocation+RACTypeParsing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6896AF4932F1BC1210DB9B4E6F021FFD /* UIActionSheet+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ADEDBE9FD4487C59415F46A2A15390F1 /* UIActionSheet+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69891A541F474716EC94D2E876655A47 /* UISlider+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = CC8E1D16520F6B3F2BD031F524799220 /* UISlider+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C15B0A3699A328F0FE20E1B8FD0177F /* RACSubject.h in Headers */ = {isa = PBXBuildFile; fileRef = C158C547322DC779AB20A9929B18556E /* RACSubject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C302A92A2B6686BECB3FE70FD5937C0 /* KVOMutableArrayObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = E00BA0A580D3A4CA0522439FFD14F70A /* KVOMutableArrayObserver.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6CAC5FD8D1223882D0779348B0EF1B34 /* RACMulticastConnection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 531393512EFB7E3FF27B6EBB47F7C8FE /* RACMulticastConnection+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6D098A21BE71ACD16CDB0B11BDF6AF4E /* UISwitch+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 30EBE9BD572154F68DDEC81C41AA8669 /* UISwitch+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D744AD65FC65470251BF71E5ECEC0AC /* RACValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD5032EF2D72886E8BB59AA727E922 /* RACValueTransformer.m */; };
@@ -944,7 +944,7 @@
 				01DE62387621FAEBA2585468C6EB41F1 /* KVOMutableArray+ReactiveCocoaSupport.h in Headers */,
 				ECF227C5E4A6D4A8B28C7EA3A7F256FB /* KVOMutableArray-umbrella.h in Headers */,
 				83037BCA7D00890B130459979FB5369A /* KVOMutableArray.h in Headers */,
-				6201CE8C7227882C58A2CB0D1CF03544 /* KVOMutableArrayObserver.h in Headers */,
+				6C302A92A2B6686BECB3FE70FD5937C0 /* KVOMutableArrayObserver.h in Headers */,
 				C9947FDD77E77C3D8C7A928306795372 /* NSObject+BlockObservation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
