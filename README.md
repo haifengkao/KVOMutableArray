@@ -140,7 +140,7 @@ NSArray* copy = [array copy];
 
 ## Requirements
 
-Requires iOS 7.0, and ARC.
+Requires iOS 8.0, and ARC.
 
 ## How it works
 
