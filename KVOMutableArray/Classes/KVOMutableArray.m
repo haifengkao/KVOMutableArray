@@ -16,7 +16,8 @@
 {
     if((self = [super init]))
     {
-        _observer = [[KVOMutableArrayObserver alloc] initWithMutableArray:array];
+       // don't use nil array, otherwise the array cannot store anything
+       _observer = [[KVOMutableArrayObserver alloc] initWithMutableArray:array ?: [[NSMutableArray alloc] init]];
     }
     return self;
 }
